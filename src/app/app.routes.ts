@@ -1,10 +1,19 @@
-import { NavbarComponent } from './layout/navbar/navbar.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { FooterComponent } from './layout/footer/footer.component'
 import { Routes } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PatientRecordsComponent } from './pages/patient-records/patient-records.component';
+import { MedicationsComponent } from './pages/medications/medications.component';
+import { AppointmentsComponent } from './pages/appointments/appointments.component';
 
 export const routes: Routes = [
-    {path: '', component: NavbarComponent},
-    {path: '', component: SidebarComponent},
-    {path: '', component: FooterComponent},
-];
+    {
+        path: '',
+        component: LayoutComponent,
+        children: [
+            {path: '', component: DashboardComponent},
+            {path: 'patients', component: PatientRecordsComponent},
+            {path: 'medications', component: MedicationsComponent},
+            {path: 'appointments', component: AppointmentsComponent},
+        ]
+    }
+]
