@@ -1,21 +1,28 @@
-<nav class="flex justify-between p-8 shadow-sm">
-    <!-- logo -->
-    <div>
-        <h2 class="text-3xl text-gray-900 font-semibold">
-            <i class="bi bi-plus-square-fill text-blue-600"></i> 
-            MediHelp
-        </h2>
-    </div>
-    <!-- right nav -->
-    <div class="text-gray-600 text-2xl space-x-4">
-        <button>
-            <i class="bi bi-bell-fill"></i>
+<nav class="flex justify-between items-center p-6 shadow-sm bg-white">
+  <!-- Logo -->
+  <div class="flex items-center space-x-2">
+    <i class="bi bi-plus-square-fill text-blue-600 text-2xl"></i>
+    <h1 class="text-2xl font-bold text-gray-900">MediHelp</h1>
+  </div>
+
+  <!-- Right section -->
+  <div class="flex items-center space-x-6 text-gray-600">
+        <!-- Notifications -->
+        <button aria-label="Notifications" class="relative text-xl hover:text-gray-900">
+        <i class="bi bi-bell-fill"></i>
+        <!-- notification badge -->
+        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">1</span>
         </button>
-        <button>
-            <i class="bi bi-person-circle"></i>
+
+        <!-- User Profile -->
+        <button aria-label="User Profile" class="text-2xl hover:text-gray-900">
+        <i class="bi bi-person-circle"></i>
         </button>
-        <button>
-            <i class="bi bi-translate"></i>
-        </button>
+
+        <!-- Language Switcher -->
+        <select name="language-switcher" class="flex items-center space-x-1 cursor-pointer bg-white hover:text-gray-900">
+            <option value="EN" class="text-sm font-medium">🇬🇧 En</option>
+            <option value="FR" class="text-sm font-medium">🇫🇷 Fr</option>
+        </select>
     </div>
 </nav>
