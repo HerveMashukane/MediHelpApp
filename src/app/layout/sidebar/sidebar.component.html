@@ -5,44 +5,61 @@
             routerLink="/dashboard"
             routerLinkActive="bg-blue-100 text-blue-600"
             class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition">
-            <i class="bi bi-speedometer2"></i>
+            <i class="fa-solid fa-gauge"></i>
             <span>Dashboard</span>
         </button>
 
         <!-- Appointments -->
-         
        <button 
             routerLink="/appointments"
             routerLinkActive="bg-blue-100 text-blue-600"
             class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition">
-            <i class="bi bi-calendar-event-fill"></i>
+            <i class="fa-solid fa-calendar-check"></i>
             <span>Appointments</span>
         </button>
 
+        <!-- Appointments booking -->
+        <button 
+            routerLink="/bookings"
+            routerLinkActive="bg-blue-100 text-blue-600"
+            class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition">
+            <i class="fa-solid fa-calendar-plus"></i>
+            <span>Bookings</span>
+        </button>
+
+        <!-- My Doctors -->
+        <button 
+            routerLink="/mydoctor"
+            routerLinkActive="bg-blue-100 text-blue-600"
+            class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition">
+            <i class="fa-solid fa-user-doctor"></i>
+            <span>My Doctors</span>
+        </button>
 
         <!-- Medication Tracker -->
         <button 
         routerLink="/medications"
         routerLinkActive="bg-blue-100 text-blue-600"
             class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition">
-            <i class="bi bi-capsule"></i>
+            <i class="fa-solid fa-pills"></i>
             <span>Medication Tracker</span>
         </button>
 
         <!-- Patient Records -->
         <button 
             routerLink="/patients"
+            routerLinkActive="bg-blue-100 text-blue-600"
             class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition">
-            <i class="bi bi-person-vcard"></i>
+            <i class="fa-solid fa-file-medical"></i>
             <span>Patient Records</span>
         </button>
 
         <!-- Settings -->
         <button 
-            routerLink="settings"
-            routerLinkActive="settings"
+            routerLink="/settings"
+            routerLinkActive="bg-blue-100 text-blue-600"
             class="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition">
-            <i class="bi bi-gear-fill"></i>
+            <i class="fa-solid fa-gear"></i>
             <span>Settings</span>
         </button>
     </nav>
