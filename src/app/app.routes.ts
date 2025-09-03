@@ -5,7 +5,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PatientRecordsComponent } from './pages/patient-records/patient-records.component';
 import { MedicationsComponent } from './pages/medications/medications.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
-import { AppointmentBookingComponent } from './pages/appointment-booking/appointment-booking.component';
+import { BookingsComponent } from './pages/bookings/bookings.component';
 import { MydoctorsComponent } from './pages/mydoctors/mydoctors.component';
 
 export const routes: Routes = [
@@ -18,7 +18,7 @@ export const routes: Routes = [
       { path: 'patients', component: PatientRecordsComponent },
       { path: 'medications', component: MedicationsComponent },
       { path: 'appointments', component: AppointmentsComponent },
-      {path: 'bookings', component: AppointmentBookingComponent},
+      {path: 'bookings', component: BookingsComponent},
       {path: 'mydoctor', component: MydoctorsComponent},
 
       {path: 'settings', component: SettingsComponent},

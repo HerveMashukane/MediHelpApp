@@ -1,1 +1,80 @@
-<p>bookings works!</p>
+<section>
+    <h2 class="text-2xl text-blue-600 font-semibold">Bookings</h2>
+
+    <!-- Appointment form + avalable slots -->
+    <div class="flex justify-between gap-3">
+        <!-- appointment form -->
+        <form class="text-gray-900 space-y-4 bg-white p-4 shadow-lg rounded-md">
+            <h3 class="text-lg text-blue-600 font-semibold">Book an Appointment</h3>
+            <!-- patient name -->
+            <div class="flex flex-col space-y-2">
+                <label for="name">Patient Name</label>
+                <input type="text" placeholder="Type patient name..." class="border rounded-md px-4 py-2">
+            </div>
+
+            <!-- patient doctor -->
+            <div class="flex flex-col space-y-2">
+                <label for="doctor">Select Doctor</label>
+                <select name="doctor">
+                    <option value="Dr. Herve">Dr. Herve</option>
+                    <option value="Dr. Patricia">Dr. Patricia</option>
+                    <option value="Dr. Hiro">Dr. Hiro</option>
+                    <option value="Dr. Christelle">Dr. Christelle</option>
+                </select>
+            </div>
+
+            <!-- appointment date -->
+            <div class="flex flex-col space-y-2">
+                <label for="date">Date</label>
+                <input type="date" name="date" class="border rounded-md px-4 py-2">
+            </div>
+
+            <!-- appointment time -->
+            <div class="flex flex-col space-y-2">
+                <label for="time">Time</label>
+                <input type="time" name="time" class="border rounded-md px-4 py-2">
+            </div>
+
+            <!-- additional information -->
+            <div class="flex flex-col space-y-2">
+                <label for="">Notes</label>
+                <textarea 
+                    name="note" 
+                    cols="30" 
+                    rows="5" 
+                    class="border rounded-md px-4 py-2"
+                    placeholder="Type additional information...">
+                </textarea>
+            </div>
+            <!-- appointment button -->
+            <div>
+                <button class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition">
+                    Book Appointment
+                </button>
+            </div>
+        </form>
+
+        <!-- AVAILABLE SLOTS + TEXT -->
+        <div class="flex flex-col bg-white p-4 shadow-lg rounded-md">
+            <!-- text -->
+            <div>
+                <h3 class="text-lg text-blue-600 font-semibold">Avalable slots</h3>
+            </div>
+            <!-- slots -->
+            <div class="grid grid-cols-2">
+                <div>
+                    <p class="flex flex-col">
+                        9:00
+                        <span>AM</span>
+                    </p>
+                </div>
+                <div>
+                    <p class="flex flex-col">
+                        5:00
+                        <span>PM</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
