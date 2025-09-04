@@ -15,7 +15,7 @@ export class MydoctorsComponent {
       fullName: 'Dr. Herve Mashukane', 
       image: '/assets/images/herve.png', 
       alt: 'Dr. Herve Mashukane', 
-      speaciality: 'Generalist', 
+      speciality: 'Generalist', 
       viewBtn: 'View', 
       contactBtn: 'Contact'
     },
@@ -24,7 +24,7 @@ export class MydoctorsComponent {
       fullName: 'Dr. Herve Mashukane', 
       image: '/assets/images/herve.png', 
       alt: 'Dr. Herve Mashukane', 
-      speaciality: 'Cardiologist', 
+      speciality: 'Cardiologist', 
       viewBtn: 'View', 
       contactBtn: 'Contact'
     },
@@ -33,7 +33,7 @@ export class MydoctorsComponent {
       fullName: 'Dr. Herve Mashukane', 
       image: '/assets/images/herve.png', 
       alt: 'Dr. Herve Mashukane', 
-      speaciality: 'Dermatologist', 
+      speciality: 'Dermatologist', 
       viewBtn: 'View', 
       contactBtn: 'Contact'
     },
@@ -42,7 +42,7 @@ export class MydoctorsComponent {
       fullName: 'Dr. Herve Mashukane', 
       image: '/assets/images/herve.png', 
       alt: 'Dr. Herve Mashukane', 
-      speaciality: 'Neurologist', 
+      speciality: 'Neurologist', 
       viewBtn: 'View', 
       contactBtn: 'Contact'
     },
@@ -51,7 +51,7 @@ export class MydoctorsComponent {
       fullName: 'Dr. Herve Mashukane', 
       image: '/assets/images/herve.png', 
       alt: 'Dr. Herve Mashukane', 
-      speaciality: 'Surgerist', 
+      speciality: 'Surgerist', 
       viewBtn: 'View', 
       contactBtn: 'Contact'
     },
@@ -60,7 +60,7 @@ export class MydoctorsComponent {
       fullName: 'Dr. Herve Mashukane', 
       image: '/assets/images/herve.png', 
       alt: 'Dr. Herve Mashukane', 
-      speaciality: 'Oncologist', 
+      speciality: 'Oncologist', 
       viewBtn: 'View', 
       contactBtn: 'Contact'
     },
