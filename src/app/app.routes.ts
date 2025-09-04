@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PatientRecordsComponent } from './pages/patient-records/patient-records.component';
-import { MedicationsComponent } from './pages/medications/medications.component';
+import { MedicationTrackerComponent } from './pages/medication-tracker/medication-tracker.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { BookingsComponent } from './pages/bookings/bookings.component';
 import { MydoctorsComponent } from './pages/mydoctors/mydoctors.component';
@@ -16,7 +16,7 @@ export const routes: Routes = [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'}, //default route
       { path: 'dashboard', component: DashboardComponent },
       { path: 'patients', component: PatientRecordsComponent },
-      { path: 'medications', component: MedicationsComponent },
+      { path: 'medications', component: MedicationTrackerComponent },
       { path: 'appointments', component: AppointmentsComponent },
       {path: 'bookings', component: BookingsComponent},
       {path: 'mydoctor', component: MydoctorsComponent},
