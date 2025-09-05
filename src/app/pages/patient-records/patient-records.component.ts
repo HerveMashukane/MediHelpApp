@@ -15,7 +15,9 @@ export class PatientRecordsComponent {
       fullName: 'Christelle Pelaya', 
       image: '/assets/images/herve.png', 
       alt: 'Christelle Pelaya', 
-      department: 'Dermatology', 
+      department: 'Dermatology',
+      age: '30',
+      bloodGroup: 'A+',
       viewBtn: 'View', 
       editBtn: 'Edit'
     },
@@ -25,6 +27,8 @@ export class PatientRecordsComponent {
       image: '/assets/images/herve.png', 
       alt: 'Herve Mashukane', 
       department: 'Cardiology', 
+      age: '28',
+      bloodGroup: 'O-',
       viewBtn: 'View', 
       editBtn: 'Edit'
     },
@@ -34,6 +38,8 @@ export class PatientRecordsComponent {
       image: '/assets/images/herve.png', 
       alt: 'Hiro Mataba', 
       department: 'Dermatology', 
+      age: '70',
+      bloodGroup: 'B+',
       viewBtn: 'View', 
       editBtn: 'Edit'
     },
@@ -42,7 +48,9 @@ export class PatientRecordsComponent {
       fullName: 'Patricia Masiri', 
       image: '/assets/images/herve.png', 
       alt: 'Patricia Masiri', 
-      department: 'Neurology', 
+      department: 'Neurology',
+      age: '40' ,
+      bloodGroup: 'A',
       viewBtn: 'View', 
       editBtn: 'Edit'
     },
@@ -52,6 +60,8 @@ export class PatientRecordsComponent {
       image: '/assets/images/herve.png', 
       alt: 'Herve Mashukane', 
       department: 'Surgery', 
+      age: '60',
+      bloodGroup: 'B',
       viewBtn: 'View', 
       editBtn: 'Edit'
     },
@@ -60,7 +70,9 @@ export class PatientRecordsComponent {
       fullName: 'Hiro Mataba', 
       image: '/assets/images/herve.png', 
       alt: 'Hiro Mataba', 
-      department: 'Oncology', 
+      department: 'Oncology',
+      age: '55',
+      bloodGroup: 'O', 
       viewBtn: 'View', 
       editBtn: 'Edit'
     },
