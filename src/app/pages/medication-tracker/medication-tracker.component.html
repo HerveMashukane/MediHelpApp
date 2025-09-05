@@ -1,14 +1,54 @@
 <section class="space-y-8">
     <h2 class="text-2xl text-blue-500 font-semibold">Medication Tracker</h2>
 
-    <!-- add medication button -->
-    <button class="float-right bg-blue-500 text-white px-3rounded-full hover:bg-blue-600 transition">
-        <i class="fa-solid fa-plus"></i>
-        Add medication
-    </button>
+    <div class="bg-white shadow-lg p-8 space-y-4 rounded-md">
+        <!-- header text and button -->
+        <div class="flex justify-between">
+            <h2 class="text-xl text-blue-500 font-semibold">My Medications</h2>
+            <!-- add medication button -->
+            <button class="bg-blue-500 text-white py-2 px-5 rounded-md hover:bg-blue-600 transition">
+                <i class="fa-solid fa-plus"></i>
+                Add medication
+            </button>
+        </div>
 
-    <!-- medication table -->
-    <div>
-        <h2 class="text-xl text-blue-500 font-semibold">My Medications</h2>
+        <!-- medication table -->
+        <table class="w-full border-2 border-white text-white bg-blue-500 shadow-lg">
+            <thead>
+                <tr class="text-left">
+                    <th class="border-r p-2">MEDICATION</th>
+                    <th class="border-r p-2">DOSAGE</th>
+                    <th class="border-r p-2">SCHEDULE</th>
+                    <th class="border-r p-2">STATUS</th>
+                    <th class="border-r p-2">ACTIONS</th>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let med of medicationsTracker">
+                <tr class="border">
+                    <td class="py-3 border-r px-2">{{ med.name }}</td>
+                    <td class="py-3 border-r px-2">{{ med.dosage }}</td>
+                    <td class="py-3 border-r px-2">{{ med.schedule }}</td>
+                    <td class="py-3 border-r px-2">
+                        <button 
+                        class="py-1 px-3 rounded-full"
+                        [ngClass]="{
+                            'bg-emerald-100 text-emerald-600 hover:bg-emerald-200 transition': med.status === 'Active', 
+                            'bg-red-100 text-red-600 hover:bg-red-200 transition': med.status === 'Pending'
+                        }"
+                        >{{ med.status }}</button>
+                    </td>
+                    <td class="flex space-x-2 py-3 border-r px-2">
+                        <!-- ation buttons -->
+                        <button class="bg-emerald-100 text-emerald-600 py-1 px-3 rounded-full hover:bg-emerald-200 transition">
+                            Edit
+                        </button>
+                        <button class="bg-red-100 text-red-600 py-1 px-3 rounded-full hover:bg-red-200 transition">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
