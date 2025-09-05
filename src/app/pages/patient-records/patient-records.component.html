@@ -1,1 +1,44 @@
-<p>patient-records works!</p>
+<section class="flex flex-col">
+    <h2 class="text-2xl text-blue-500 font-semibold">Patient Records</h2>
+
+    <!-- filters -->
+    <div class="flex justify-between py-4">
+        <input 
+            type="search" 
+            placeholder="Search patient.." 
+            class="border rounded-md px-4 py-2 ring-1 ring-blue-500 outline-blue-500"
+        >
+        <select class="bg-blue-100 p-2 text-gray-900">
+            <option value="All" selected>All Departments</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Dermatology">Dermatology</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Surgey">Surgery</option>
+            <option value="Oncology">Oncology</option>
+        </select>
+    </div>
+
+    <!-- p cards -->
+    <div class="grid grid-cols-3 gap-4 pt-8">
+        <div 
+            *ngFor="let p of patients" 
+            class="flex flex-col items-center bg-white p-4 shadow-lg rounded-md transition cursor-pointer hover:scale-105">
+            <div class="space-y-4">
+                <p class="text-sm text-gray-900">{{ p.preferedName }}</p>
+                <img [src]="p.image" [alt]="p.alt" class="w-20 h-20 rounded-full border border-blue-500">
+                <p class="font-semibold flex flex-col">{{ p.fullName }}
+                    <span class="font-normal text-center text-gray-500">{{ p.department }}</span>
+                </p>
+            </div>
+            <div class="flex space-x-4">
+                <button class="bg-blue-500 text-white py-1 px-3 rounded-md mt-2 hover:bg-blue-600 transition">
+                    {{ p.viewBtn }}
+                </button>
+                <button class="bg-emerald-100 text-emerald-500 py-1 px-3 rounded-md mt-2 hover:bg-emerald-200 transition">
+                    {{ p.editBtn }}
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
