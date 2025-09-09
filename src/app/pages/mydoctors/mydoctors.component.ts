@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NgForOf } from "@angular/common";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-mydoctors',
   standalone: true,
-  imports: [NgForOf],
+  imports: [CommonModule],
   templateUrl: './mydoctors.component.html',
   styleUrl: './mydoctors.component.css'
 })

@@ -20,7 +20,6 @@ export const routes: Routes = [
       { path: 'appointments', component: AppointmentsComponent },
       {path: 'bookings', component: BookingsComponent},
       {path: 'mydoctor', component: MydoctorsComponent},
-
       {path: 'settings', component: SettingsComponent},
     ]
   }
