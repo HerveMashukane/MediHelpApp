@@ -14,12 +14,12 @@ export class DoctorsFormComponent {
   fullName = '';
   preferedName = '';
   speciality = '';
-  image = '';
+  image: string | null = null;
 
   constructor(private doctorsService: MydoctorsService) {}
 
   onSubmit() {
-    if(this.fullName && this.preferedName && this.speciality) {
+    if(this.fullName && this.preferedName && this.speciality && this.image) {
       const newDoctor: Doctor = {
         fullName: this.fullName,
         preferedName: this.preferedName,
@@ -27,6 +27,23 @@ export class DoctorsFormComponent {
         image: this.image,
       };
       this.doctorsService.addDoctor(newDoctor);
+
+      // reset form
+      this.fullName = '',
+      this.preferedName = '',
+      this.speciality = '',
+      this.image = null;
+    }
+  }
+  // Handle file selection
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+       this.image = reader.result as string; // base64 data
+      };
+      reader.readAsDataURL(file);
     }
   }
 }

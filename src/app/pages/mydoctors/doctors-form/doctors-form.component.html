@@ -1,4 +1,5 @@
 <!-- doctor's form -->
+ <h2 class="text-2xl text-blue-500 font-semibold">Doctors Form</h2>
  <form (ngSubmit)="onSubmit()" class="bg-white flex flex-col p-8 space-y-4 w-full shadow-lg rounded-lg">
     <!-- doctor's full name -->
     <label for="fullName" class="flex flex-col text-blue-600">
@@ -19,10 +20,10 @@
     </label>
 
     <!-- doctor's image -->
-    <label for="image" class="flex flex-col text-blue-600">
-        Select Image
-        <input type="file" placeholder="Doctor's image" class="border-2 rounded-lg p-3 mt-3">
-    </label>
+    <label class="flex flex-col text-blue-600">
+    Select Image
+    <input type="file" (change)="onFileSelected($event)" name="image" class="border-2 rounded-lg p-3 mt-3">
+  </label>
 
     <!-- buttons -->
     <div class="flex space-x-4">

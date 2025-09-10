@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { DoctorsFormComponent } from "./doctors-form/doctors-form.component";
-import { MydoctorsService, Doctor } from '../../services/mydoctors.service';
+import { Doctor, MydoctorsService } from '../../services/mydoctors.service';
+import { OnSameUrlNavigation } from '@angular/router';
+
 
 @Component({
   selector: 'app-mydoctors',
@@ -14,12 +16,12 @@ export class MydoctorsComponent implements OnInit {
   doctors: Doctor[] = [];
 
   constructor(private doctorsService: MydoctorsService) {}
+
   ngOnInit(): void {
     this.doctorsService.doctors$.subscribe(data => {
       this.doctors = data;
     })
   }
-  
   // doctors: any = [
   //   {
   //     preferedName: 'Dr. Christelle', 

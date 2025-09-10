@@ -4,8 +4,8 @@ import { BehaviorSubject } from 'rxjs';
 export interface Doctor {
   fullName: string,
   preferedName: string,
-  image: string,
   speciality: string,
+  image: string,
 }
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class MydoctorsService {
   doctors$ = this.doctorsSource.asObservable();
 
   addDoctor(doctor: Doctor) {
-    const currentDoctor = this.doctorsSource.value;
-    this.doctorsSource.next([...currentDoctor, doctor]);
+    const currectDoctor = this.doctorsSource.value;
+    this.doctorsSource.next([...currectDoctor, doctor]);
   }
 }
