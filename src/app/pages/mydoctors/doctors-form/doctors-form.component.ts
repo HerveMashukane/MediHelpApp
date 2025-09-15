@@ -8,7 +8,7 @@ import { MydoctorsService, Doctor } from '../../../services/mydoctors.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './doctors-form.component.html',
-  styleUrl: './doctors-form.component.css'
+  styleUrl: './doctors-form.component.css',
 })
 export class DoctorsFormComponent {
   fullName = '';
@@ -19,19 +19,20 @@ export class DoctorsFormComponent {
   constructor(private doctorsService: MydoctorsService) {}
 
   onSubmit() {
-    if(this.fullName && this.preferedName && this.speciality && this.image) {
+    if (this.fullName && this.preferedName && this.speciality && this.image) {
       const newDoctor: Doctor = {
         fullName: this.fullName,
         preferedName: this.preferedName,
         speciality: this.speciality,
         image: this.image,
       };
+
       this.doctorsService.addDoctor(newDoctor);
 
-      // reset form
-      this.fullName = '',
-      this.preferedName = '',
-      this.speciality = '',
+      // ✅ Reset form (semicolon instead of comma)
+      this.fullName = '';
+      this.preferedName = '';
+      this.speciality = '';
       this.image = null;
     }
   }

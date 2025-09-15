@@ -1,47 +1,36 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
 
 export interface Doctor {
-  fullName: string,
-  preferedName: string,
-  speciality: string,
-  image: string,
+  fullName: string;
+  preferedName: string;
+  speciality: string;
+  image: string;
 }
-@Injectable({
-  providedIn: 'root'
-})
 
+@Injectable({
+  providedIn: 'root',
+})
 export class MydoctorsService {
-  private doctors: Doctor[] = [];
-  private doctorsSource = new BehaviorSubject<Doctor[]>([]);
+  private doctorsSource = new BehaviorSubject<Doctor[]>(this.loadDoctorsFromLocalStorage());
   doctors$ = this.doctorsSource.asObservable();
 
-  // check if platform is a browser
-  constructor(@Inject(PLATFORM_ID) platformId: object) {
-    this.doctors = isPlatformBrowser(platformId) ? this.loadDoctorsFromLocalStorage() : [];
-    this.doctorsSource?.next(this.doctors);
-  }  
+  constructor() {}
 
-  // load doctors from localStorage
-  private loadDoctorsFromLocalStorage(): Doctor[] {
-    if (typeof localStorage !== 'undefined') {
-      const storedDoctors = localStorage.getItem('doctors');
-      return storedDoctors ? JSON.parse(storedDoctors) : [];
-    }
-    return [];
+  // saveDoctors to local storage
+  private saveDoctorsToLocalStorage(doctors: Doctor[]) {
+    localStorage.setItem('doctors', JSON.stringify(doctors));
   }
 
-  // doctors to localStorage
-  private saveDoctorsToLocalStorage(): void {
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('doctors', JSON.stringify(this.doctors));
-    }
+  private loadDoctorsFromLocalStorage() : Doctor[] {
+    const storedDoctors = localStorage.getItem('doctors');
+    return storedDoctors ? JSON.parse(storedDoctors) : []
   }
-
+  // Add doctor
   addDoctor(doctor: Doctor) {
-    const currectDoctor = this.doctorsSource.value;
-    this.doctorsSource.next([...currectDoctor, doctor]);
-    this.saveDoctorsToLocalStorage();
+    const currentDoctors = this.doctorsSource.value;
+    const updatedDoctors = [...currentDoctors, doctor];
+    this.doctorsSource.next(updatedDoctors);
+    this.saveDoctorsToLocalStorage(updatedDoctors);
   }
 }

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [CommonModule, DoctorsFormComponent],
   templateUrl: './mydoctors.component.html',
-  styleUrl: './mydoctors.component.css'
+  styleUrl: './mydoctors.component.css',
 })
 export class MydoctorsComponent {
   doctors$: Observable<Doctor[]>;
