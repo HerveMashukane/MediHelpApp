@@ -16,6 +16,8 @@ export class DoctorsFormComponent {
   preferedName = '';
   speciality = '';
   image: string | null = null;
+  // cancel form
+  @Output() cancel = new EventEmitter<void>();
 
   constructor(private doctorsService: MydoctorsService) {}
 
@@ -48,7 +50,6 @@ export class DoctorsFormComponent {
   }
 
   // cancel form
-  @Output() cancel = new EventEmitter<void>();
   onCancel() {
     this.cancel.emit();
   }
