@@ -26,6 +26,7 @@ export class MydoctorsService {
     return storedDoctors ? JSON.parse(storedDoctors) : [];
   }
 
+  // add new doctor, update list and save to LS
   addDoctor(doctor: Doctor) {
     const currentDoctor = this.doctorsSource.value;
     const updatedDoctor = [...currentDoctor, doctor]
