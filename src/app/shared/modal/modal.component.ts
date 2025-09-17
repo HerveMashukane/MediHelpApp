@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Doctor } from '../../services/mydoctors.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './modal.component.css'
 })
 export class ModalComponent {
-
+  
 }
