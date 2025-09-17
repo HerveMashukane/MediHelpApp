@@ -43,6 +43,7 @@
             </div>
             <div class="flex space-x-4">
                 <button 
+                    (click)="viewDoctor(doctor)"
                     class="bg-blue-500 text-white py-1 px-3 rounded-md mt-2 hover:bg-blue-600 transition">
                     View
                 </button>
@@ -56,7 +57,11 @@
 </section>
 
 <!-- doctor modal -->
-<app-modal></app-modal>
+<app-modal 
+    [doctor]="selectedDoctor"
+    [isOpen]="isModelOpen"
+    (close)="closeModel()">
+</app-modal>
 
 <!-- doctor form -->
  <app-doctors-form 

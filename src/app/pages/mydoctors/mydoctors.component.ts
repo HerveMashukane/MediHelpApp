@@ -24,4 +24,19 @@ export class MydoctorsComponent {
   toggleForm() {
     this.isFormVisible = !this.isFormVisible;
   }
+
+  // view doctor's details
+  selectedDoctor: Doctor | null = null;
+  isModelOpen: boolean = false;
+
+  viewDoctor(doctor: Doctor) {
+    this.selectedDoctor = doctor;
+    this.isModelOpen = true;
+  }
+
+  // close details
+  closeModel() {
+    this.selectedDoctor = null;
+    this.isModelOpen = false;
+  }
 }

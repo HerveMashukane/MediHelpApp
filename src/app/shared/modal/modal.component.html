@@ -1,12 +1,12 @@
 <!-- Modal Overlay -->
-<div class="flex items-center justify-center z-50">
+<div *ngIf="isOpen" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
   
     <!-- Modal Box -->
     <div class="bg-white rounded-lg shadow-lg p-6 w-[90%] max-w-md animate-fadeIn">
         <!-- Header -->
         <div class="flex justify-between items-center border-b pb-2 mb-4">
-        <h3 class="text-xl font-semibold text-blue-600">Herve Mashukane</h3>
-        <button class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+        <h3 class="text-xl font-semibold text-blue-600">{{ doctor?.fullName }}</h3>
+        <button (click)="onClose()" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
         </div>
 
         <!-- Body -->
@@ -15,13 +15,13 @@
             <p><strong>Preferred Name:</strong> Dr. John</p>
             <p><strong>Speciality:</strong> Cardiologist</p>
             <p><strong>Hospital:</strong> Saint Mary Hospital</p>
-            <p><strong>Email:</strong>hervemashukane.com</p>
+            <p><strong>Email:</strong> hervemashukane.com</p>
             <p><strong>Phone:</strong> +243 979 594 795</p>
         </div>
 
         <!-- Footer -->
         <div class="flex justify-end space-x-3 mt-4">
-            <button class="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300">Close</button>
+            <button (click)="onClose()" class="bg-gray-200 px-4 py-2 rounded-md hover:bg-gray-300">Close</button>
             <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Contact</button>
         </div>
     </div>
