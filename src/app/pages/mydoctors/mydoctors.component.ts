@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { DoctorsFormComponent } from "./doctors-form/doctors-form.component";
 import { Observable } from 'rxjs';
 import { Doctor, MydoctorsService } from '../../services/mydoctors.service';
+import { ModalComponent } from "../../shared/modal/modal.component";
 
 @Component({
   selector: 'app-mydoctors',
   standalone: true,
-  imports: [CommonModule, DoctorsFormComponent],
+  imports: [CommonModule, DoctorsFormComponent, ModalComponent],
   templateUrl: './mydoctors.component.html',
   styleUrl: './mydoctors.component.css',
 })
