@@ -27,7 +27,8 @@ export class DoctorsFormComponent {
   constructor(private doctorsService: MydoctorsService) {}
 
   onSubmit() {
-    if (this.fullName && this.preferedName && this.speciality && this.image) {
+    if (
+        this.fullName && this.preferedName && this.email && this.phone && this.speciality && this.hospital && this.image) {
       const newDoctor: Doctor = {
         id: this.id,
         image: this.image,
@@ -40,10 +41,13 @@ export class DoctorsFormComponent {
       };
       this.doctorsService.addDoctor(newDoctor);
       // Reset form
+      this.image = null;
       this.fullName = '';
       this.preferedName = '';
+      this.email = '';
+      this.phone = '';
       this.speciality = '';
-      this.image = null;
+      this.hospital = '';
     }
   }
   // Handle file selection
