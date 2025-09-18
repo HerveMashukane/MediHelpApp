@@ -12,10 +12,15 @@ import { EventEmitter, Output } from '@angular/core';
   styleUrl: './doctors-form.component.css',
 })
 export class DoctorsFormComponent {
+  id = 0;
+  image: string | null = null;
   fullName = '';
   preferedName = '';
+  email = '';
+  phone = '';
   speciality = '';
-  image: string | null = null;
+  hospital = '';
+
   // cancel form
   @Output() cancel = new EventEmitter<void>();
 
@@ -24,10 +29,14 @@ export class DoctorsFormComponent {
   onSubmit() {
     if (this.fullName && this.preferedName && this.speciality && this.image) {
       const newDoctor: Doctor = {
+        id: this.id,
+        image: this.image,
         fullName: this.fullName,
         preferedName: this.preferedName,
+        email: this.email,
+        phone: this.phone,
         speciality: this.speciality,
-        image: this.image,
+        hospital: this.hospital,
       };
       this.doctorsService.addDoctor(newDoctor);
       // Reset form
