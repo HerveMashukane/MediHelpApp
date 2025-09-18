@@ -14,6 +14,7 @@ import { ModalComponent } from "../../shared/modal/modal.component";
 })
 export class MydoctorsComponent {
   doctors$: Observable<Doctor[]>;
+  doctor: any;
 
   constructor(private doctorsService: MydoctorsService) {
     this.doctors$ = this.doctorsService.doctors$;
