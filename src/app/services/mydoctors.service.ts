@@ -20,7 +20,7 @@ export class MydoctorsService {
   doctors$ = this.doctorsSource.asObservable();
 
   // save doctors to local storage
-  private saveDoctorsToLocaltorage(doctors: Doctor[]) {
+  private saveDoctorsToLocalStorage(doctors: Doctor[]) {
     localStorage.setItem('doctors', JSON.stringify(doctors));
   }
 
@@ -29,12 +29,11 @@ export class MydoctorsService {
     const storedDoctors = localStorage.getItem('doctors');
     return storedDoctors ? JSON.parse(storedDoctors) : [];
   }
-
   // add new doctor, update list and save to LS
   addDoctor(doctor: Doctor) {
     const currentDoctor = this.doctorsSource.value;
-    const updatedDoctor = [...currentDoctor, doctor]
+    const updatedDoctor = [...currentDoctor, doctor];
     this.doctorsSource.next(updatedDoctor);
-    this.saveDoctorsToLocaltorage(updatedDoctor);
+    this.saveDoctorsToLocalStorage(updatedDoctor);
   }
 }

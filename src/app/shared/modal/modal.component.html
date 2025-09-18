@@ -11,12 +11,12 @@
 
         <!-- Body -->
         <div class="space-y-3 text-gray-700 text-center">
-            <img src="/assets/images/herve.png" alt="Doctor Name" class="object-cover w-24 h-24 rounded-full border border-blue-500 mx-auto">
+            <img [src]="doctor?.image" [alt]="doctor?.preferedName" class="object-cover w-24 h-24 rounded-full border border-blue-500 mx-auto">
             <p><strong>Preferred Name:</strong> {{doctor?.preferedName}}</p>
             <p><strong>Speciality:</strong> {{doctor?.speciality}}</p>
-            <p><strong>Hospital:</strong> Saint Mary Hospital</p>
-            <p><strong>Email:</strong> hervemashukane.com</p>
-            <p><strong>Phone:</strong> +243 979 594 795</p>
+            <p><strong>Hospital:</strong> {{doctor?.hospital}}</p>
+            <p><strong>Email:</strong> {{doctor?.email}}</p>
+            <p><strong>Phone:</strong> {{doctor?.phone}}</p>
         </div>
 
         <!-- Footer -->
