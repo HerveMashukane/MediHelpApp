@@ -16,7 +16,6 @@ export interface Doctor {
   providedIn: 'root',
 })
 export class MydoctorsService {
-  private doctors: Doctor[] = [];
   public doctorsSource = new BehaviorSubject<Doctor[]>(this.loadDoctorsFromLocalStorage());
   doctors$ = this.doctorsSource.asObservable();
 
@@ -37,4 +36,6 @@ export class MydoctorsService {
     this.doctorsSource.next(updatedDoctor);
     this.saveDoctorsToLocalStorage(updatedDoctor);
   }
+
+  // remove doctors
 }

@@ -52,4 +52,7 @@ export class MydoctorsComponent {
     (this.searchDoctor === '' || d.fullName.toLowerCase().includes(this.searchDoctor.toLowerCase()))
     );
   }
+
+  // remove dotors
+  
 }
