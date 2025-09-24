@@ -8,15 +8,24 @@
             placeholder="Search patient.." 
             class="bg-gray-800 text-white border border-gray-700 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-800"
         >
-        <select class="bg-gray-800 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
-            <option value="All" selected>All Departments</option>
-            <option value="Pediatrics">Pediatrics</option>
-            <option value="Cardiology">Cardiology</option>
-            <option value="Dermatology">Dermatology</option>
-            <option value="Neurology">Neurology</option>
-            <option value="Surgey">Surgery</option>
-            <option value="Oncology">Oncology</option>
-        </select>
+        <div class="flex space-x-4">
+            <button 
+                (click)="toggleForm()"
+                class="text-white py-1 px-3 rounded-md mt-2 transition flex items-center space-x-1"
+                [ngClass]="isFormVisible ? 'bg-red-800 text-white hover:bg-red-700 bi bi-x' : 'bg-blue-800 text-white hover:bg-blue-700 bi bi-plus'">
+                <span>{{isFormVisible ? 'Close Form' : 'Add Patient'}}</span>
+            </button>
+
+            <select class="bg-gray-800 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
+                <option value="All" selected>All Departments</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Surgey">Surgery</option>
+                <option value="Oncology">Oncology</option>
+            </select>
+        </div>
     </div>
 
     <!-- patient cards -->
@@ -43,3 +52,6 @@
         </div>
     </div>
 </section>
+
+<!-- patient form -->
+<app-patients-form *ngIf="isFormVisible"></app-patients-form>

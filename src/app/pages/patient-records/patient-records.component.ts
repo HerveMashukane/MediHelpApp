@@ -1,14 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { PatientsFormComponent } from './patients-form/patients-form.component';
 
 @Component({
   selector: 'app-patient-records',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PatientsFormComponent],
   templateUrl: './patient-records.component.html',
   styleUrl: './patient-records.component.css'
 })
 export class PatientRecordsComponent {
+  isFormVisible: boolean = false;
   patients: any = [
     {
       preferedName: 'Christelle', 
@@ -77,4 +79,8 @@ export class PatientRecordsComponent {
       editBtn: 'Edit'
     },
   ]
+
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
+  }
 }
