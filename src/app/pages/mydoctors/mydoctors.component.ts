@@ -57,5 +57,4 @@ export class MydoctorsComponent {
   removeDoctor(id: number) {
     this.doctorsService.removeDoctor(id);
   }
-  
 }

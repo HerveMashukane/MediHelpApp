@@ -32,6 +32,10 @@ export class MydoctorsService {
   // add new doctor, update list and save to LS
   addDoctor(doctor: Doctor) {
     const currentDoctors = this.doctorsSource.value;
+    // assign id to doctor
+    if(!doctor.id) {
+      doctor.id = Date.now();
+    }
     const updatedDoctors = [...currentDoctors, doctor];
     this.doctorsSource.next(updatedDoctors);
     this.saveDoctorsToLocalStorage(updatedDoctors);
