@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+// doctors interface
 export interface Doctor {
   id: number;
   image: string;

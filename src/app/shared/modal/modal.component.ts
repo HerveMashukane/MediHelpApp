@@ -10,6 +10,7 @@ import { Doctor } from '../../services/mydoctors.service';
   styleUrl: './modal.component.css'
 })
 export class ModalComponent {
+  // doctors functionality
   @Input() doctor: Doctor | null = null;
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter<void>();

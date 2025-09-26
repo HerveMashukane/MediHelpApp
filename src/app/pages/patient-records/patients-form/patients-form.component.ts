@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -23,8 +23,9 @@ export class PatientsFormComponent {
 
   }
 
+  @Output() close = new EventEmitter<void>();
   // cancel patients form
   onCancel() {
-    
+    this.close.emit();
   }
 }
