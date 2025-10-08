@@ -37,8 +37,8 @@ export class PatientRecordsService {
   // add new patient
   addPatient(patient: Patient) {
     const currentPatients = this.patientsSource.value;
-    const updatedPatients = [...currentPatients, patient];
-    this.patientsSource.next(updatedPatients);
-    this.savePatientsToLocalStorage(updatedPatients);
+    const updatedPatients = [...currentPatients, patient]; // immutable patients list
+    this.patientsSource.next(updatedPatients); // update observable list of patients
+    this.savePatientsToLocalStorage(updatedPatients); //save patients to local storage
   }
 }
