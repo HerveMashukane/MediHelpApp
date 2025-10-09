@@ -110,10 +110,12 @@ export class PatientRecordsComponent {
   }
 
   selectedDepartment: string = 'All';
+  searchPatient: string = '';
 
   get filteredPatients() {
     const allPatients = this.patientRecordsService.patientsSource.value;
 
-    return allPatients.filter(p => this.selectedDepartment === 'All' || p.department === this.selectedDepartment);
+    return allPatients.filter(p => (this.selectedDepartment === 'All' || p.department === this.selectedDepartment) &&
+    (this.searchPatient === '' || p.fullName.toLowerCase().includes(this.searchPatient.toLowerCase())));
   }
 }
