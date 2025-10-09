@@ -20,7 +20,7 @@ export interface Patient {
 export class PatientRecordsService {
 
   // observable list of patients
-  private patientsSource = new BehaviorSubject<Patient[]>(this.loadPatientsFromLocalStorage());
+  public patientsSource = new BehaviorSubject<Patient[]>(this.loadPatientsFromLocalStorage());
   patients$ = this.patientsSource.asObservable();
 
   // save patients to local storage

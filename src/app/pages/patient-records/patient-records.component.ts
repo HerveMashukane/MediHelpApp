@@ -4,11 +4,12 @@ import { Component } from '@angular/core';
 import { PatientsFormComponent } from './patients-form/patients-form.component';
 import { Observable } from 'rxjs';
 import { Patient } from '../../services/patient-records.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-patient-records',
   standalone: true,
-  imports: [CommonModule, PatientsFormComponent],
+  imports: [CommonModule, PatientsFormComponent, FormsModule],
   templateUrl: './patient-records.component.html',
   styleUrl: './patient-records.component.css'
 })
@@ -102,5 +103,17 @@ export class PatientRecordsComponent {
   // remove patient from list
   removePatient(id: number) {
     this.patientRecordsService.removePatient(id)
+  }
+
+  filtererPatients(patient: Patient) {
+
+  }
+
+  selectedDepartment: string = 'All';
+
+  get filteredPatients() {
+    const allPatients = this.patientRecordsService.patientsSource.value;
+
+    return allPatients.filter(p => this.selectedDepartment === 'All' || p.department === this.selectedDepartment);
   }
 }

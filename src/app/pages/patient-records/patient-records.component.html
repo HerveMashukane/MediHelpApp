@@ -16,9 +16,9 @@
                 <span>{{isFormVisible ? 'Close Form' : 'New Patient'}}</span>
             </button>
 
-            <select class="bg-gray-800 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
+            <select [(ngModel)]="selectedDepartment" class="bg-gray-800 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
                 <option value="All" selected>All Departments</option>
-                <option value="Pediatrics">Pediatrics</option>
+                <option value="Pediatry">Pediatry</option>
                 <option value="Cardiology">Cardiology</option>
                 <option value="Dermatology">Dermatology</option>
                 <option value="Neurology">Neurology</option>
@@ -31,7 +31,7 @@
     <!-- patient cards -->
     <div class="grid grid-cols-3 gap-4 pt-8">
         <div 
-            *ngFor="let p of patients$ | async" 
+            *ngFor="let p of filteredPatients" 
             class="flex flex-col items-center bg-blue-950 p-4 shadow-lg rounded-md transition cursor-pointer hover:scale-105">
             <div class="space-y-2">
                 <p class="text-sm text-gray-300 italic">{{ p.preferedName }}</p>
