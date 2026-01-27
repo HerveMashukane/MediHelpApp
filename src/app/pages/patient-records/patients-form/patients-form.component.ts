@@ -37,6 +37,7 @@ export class PatientsFormComponent {
         bloodGroup: this.bloodGroup,
       }
       this.patientsRecordService.addPatient(newPatient);
+      this.close.emit();
     }
     this.preferedName = '';
     this.preferedName = '';
