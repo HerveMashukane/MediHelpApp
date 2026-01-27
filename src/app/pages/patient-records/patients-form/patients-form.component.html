@@ -27,8 +27,19 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="flex flex-col">
                                 <label for="department" class="font-medium">Department</label>
-                                <input [(ngModel)]="department" id="department" name="department" type="text" placeholder="e.g: Pediatry" required
-                                        class="bg-gray-800 border border-gray-700 rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"/>
+                                <select 
+                                        [(ngModel)]="department" 
+                                        id="department" 
+                                        name="department"
+                                        class="bg-gray-800 border border-gray-700 text-white rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-600 transition">
+                                        <option value="" disabled selected>Choose department</option>
+                                        <option value="Pediatry">Pediatry</option>
+                                        <option value="Cardiology">Cardiology</option>
+                                        <option value="Dermatology">Dermatology</option>
+                                        <option value="Neurology">Neurology</option>
+                                        <option value="Surgey">Surgery</option>
+                                        <option value="Oncology">Oncology</option>
+                                </select>                                        
                         </div>
                         <div class="flex flex-col">
                                 <label for="dob" class="font-medium">Age</label>
