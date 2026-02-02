@@ -23,6 +23,9 @@ export class PatientRecordsService {
   public patientsSource = new BehaviorSubject<Patient[]>(this.loadPatientsFromLocalStorage());
   patients$ = this.patientsSource.asObservable();
 
+  private formVisibleSubject = new BehaviorSubject<Patient[]>([]);
+  isFormVisible$ = this.formVisibleSubject.asObservable();
+
   // save patients to local storage
   private savePatientsToLocalStorage(patients: Patient[]) {
     localStorage.setItem('patients', JSON.stringify(patients));

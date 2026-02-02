@@ -133,4 +133,9 @@ export class PatientRecordsComponent {
       (this.searchPatient === '' || p.fullName.toLowerCase().includes(this.searchPatient.toLowerCase()))
     );
   }
+
+  // edit patients
+  editPatient(patient: Patient) {
+    this.toggleForm()
+  }
 }

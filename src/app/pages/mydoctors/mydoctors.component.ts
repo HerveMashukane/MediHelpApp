@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Doctor, MydoctorsService } from '../../services/mydoctors.service';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from '../../reusable-components/card/card.component';
+import { ConfirmDialogService } from '../../confirm-dialog.service';
 
 @Component({
   selector: 'app-mydoctors',
@@ -16,7 +17,10 @@ import { CardComponent } from '../../reusable-components/card/card.component';
 export class MydoctorsComponent {
   doctors$: Observable<Doctor[]>;
 
-  constructor(private doctorsService: MydoctorsService) {
+  constructor(
+    private doctorsService: MydoctorsService,
+    private confirm: ConfirmDialogService
+  ) {
     this.doctors$ = this.doctorsService.doctors$;
   }
 
@@ -54,7 +58,15 @@ export class MydoctorsComponent {
   }
 
   // remove dotors
-  removeDoctor(id: number) {
+  async removeDoctor(id: number, fullName: string) {
+    const ok = await this.confirm.request({
+      title: 'Delete Doctor',
+      message: 'Are you sure you want to delete the',
+      hightlight: `Dr. ${fullName}`,
+      confirmText: 'Yes, delete',
+      cancelText: 'Cancel',
+    })
+    if(!ok) return;
     this.doctorsService.removeDoctor(id);
   }
 }

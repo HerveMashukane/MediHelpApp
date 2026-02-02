@@ -47,7 +47,7 @@ export class MydoctorsService {
     const currentDoctors = this.doctorsSource.value;
     const index = currentDoctors.findIndex(d => d.id === doctorId);
 
-    if(index !== -1 && confirm(`Remove Dr. ${currentDoctors[index].fullName} ?`)) {
+    if(index !== -1) {
       const updatedDoctors = [...currentDoctors];
       updatedDoctors.splice(index, 1)
       this.doctorsSource.next(updatedDoctors);
