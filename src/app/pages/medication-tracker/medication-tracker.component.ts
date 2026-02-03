@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { MedicationFormComponent } from './medication-form/medication-form.component';
 
 @Component({
   selector: 'app-medication-tracker',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MedicationFormComponent],
   templateUrl: './medication-tracker.component.html',
   styleUrl: './medication-tracker.component.css'
 })
 export class MedicationTrackerComponent {
+  isFormVisible: boolean = false;
   medicationsTracker: any = [
   {
     name: 'Amoxicillin', 
@@ -35,4 +37,8 @@ export class MedicationTrackerComponent {
     deleteBtn: 'Delete'
   },
   ]
+
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible;
+  }
 }

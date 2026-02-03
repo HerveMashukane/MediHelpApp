@@ -12,9 +12,11 @@
                 <button class="border border-blue-950 text-white px-3 py-1 rounded-full hover:bg-blue-950 transition">Completed</button>
             </div>
             <!-- add medication button -->
-            <button class="bg-blue-950 text-white py-2 px-5 rounded-md hover:bg-blue-900 transition">
-                <i class="fa-solid fa-plus"></i>
-                Add medication
+            <button 
+                (click)="toggleForm()" 
+                class="bg-blue-950 text-white py-2 px-5 rounded-md hover:bg-blue-900 transition"
+                [ngClass]="isFormVisible ? 'bi bi-x bg-red-800 hover:bg-red-700' : 'bi bi-plus bg-blue-950 hover:bg-blue-900'">
+                <span>{{ isFormVisible ? 'Close Form' : 'Add medication' }}</span>
             </button>
         </div>
 
@@ -58,3 +60,8 @@
         </table>
     </div>
 </section>
+
+<app-medication-form 
+class="text-white"
+*ngIf="isFormVisible">
+</app-medication-form>
