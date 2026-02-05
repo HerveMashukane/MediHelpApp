@@ -62,6 +62,8 @@
 </section>
 
 <app-medication-form 
-class="text-white"
-*ngIf="isFormVisible">
+    *ngIf="isFormVisible"
+    (cancel)="closeFormFromChild()"
+    class="text-white"
+    >
 </app-medication-form>

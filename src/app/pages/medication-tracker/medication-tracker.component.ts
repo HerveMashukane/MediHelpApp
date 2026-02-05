@@ -37,7 +37,9 @@ export class MedicationTrackerComponent {
     deleteBtn: 'Delete'
   },
   ]
-
+  closeFormFromChild() {
+    this.isFormVisible = false;
+  }
   toggleForm() {
     this.isFormVisible = !this.isFormVisible;
   }

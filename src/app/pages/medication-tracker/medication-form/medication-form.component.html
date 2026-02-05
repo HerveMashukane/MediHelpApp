@@ -4,7 +4,7 @@
                 <!-- Header -->
                 <div class="flex justify-between items-center border-b border-blue-950 pb-4">
                         <h2 class="text-2xl font-bold">Medication's Form</h2>
-                        <button type="button" (close)="closeForm()" type="button" class="text-white hover:text-red-500 transition">
+                        <button type="button" (click)="closeForm()" type="button" class="text-white hover:text-red-500 transition">
                                 <i class="bi bi-x-circle text-2xl"></i>
                         </button>
                 </div>
@@ -81,9 +81,9 @@
                 <!-- Buttons -->
                 <div class="flex justify-end space-x-4">
                         <button type="submit" class="bg-blue-950 hover:bg-blue-900 transition px-6 py-2 rounded-lg font-semibold">
-                                Add Doctor
+                                Add Medication
                         </button>
-                        <button (click)="closeForm()" type="button" class="bg-red-600 hover:bg-red-500 transition px-6 py-2 rounded-lg font-semibold">
+                        <button type="button" (click)="closeForm()" type="button" class="bg-red-600 hover:bg-red-500 transition px-6 py-2 rounded-lg font-semibold">
                                 Cancel
                         </button>
                 </div>

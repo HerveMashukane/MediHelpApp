@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-medication-form',
@@ -8,7 +8,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './medication-form.component.css'
 })
 export class MedicationFormComponent {
-  @Output() cancel = new EventEmitter<void>()
+  @Output() cancel = new EventEmitter<void>();
   closeForm() {
     this.cancel.emit();
   }
