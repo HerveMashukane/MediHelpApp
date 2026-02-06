@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ConfirmDialogService, ConfirmOptions } from './confirm-dialog.service';
-import { ConfirmDialogComponent } from './reusableComponent/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent } from './reusable-components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-root',

@@ -1,0 +1,21 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Doctor } from '../../services/mydoctors.service';
+
+@Component({
+  selector: 'app-card-modal',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './card-modal.component.html',
+  styleUrl: './card-modal.component.css'
+})
+export class CardModalComponent {
+  // doctors functionality
+    @Input() doctor: Doctor | null = null;
+    @Input() isOpen: boolean = false;
+    @Output() close = new EventEmitter<void>();
+  
+    onClose() {
+      this.close.emit();
+    }
+}
