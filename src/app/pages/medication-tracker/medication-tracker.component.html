@@ -42,7 +42,9 @@
                         class="py-1 px-3 rounded-full"
                         [ngClass]="{
                             'bg-blue-800 text-white hover:bg-blue-700 transition': med.status === 'Active', 
-                            'bg-red-800 text-white hover:bg-red-700 transition': med.status === 'Pending'
+                            'bg-red-800 text-white hover:bg-red-700 transition': med.status === 'Inactive',
+                            'bg-red-600 text-white hover:bg-red-500 transition': med.status === 'Pending',
+                            'bg-green-800 text-white hover:bg-green-700 transition': med.status === 'Completed'
                         }"
                         >{{ med.status }}</button>
                     </td>
