@@ -1,4 +1,4 @@
-<section class="bg-gray-950 p-10 text-white animate-pageFlip">
+<section class="p-10 relative flex flex-col bg-gray-950 text-white animate-pageFlip">
     <!-- Appointment header + filter buttons & add appointment btn -->
     <div class="space-y-4">
         <h2 class="text-2xl font-semibold">
@@ -26,9 +26,11 @@
             </div>
             <!-- add appointment btn -->
             <div>
-                <button class="bg-blue-950 text-white py-2 px-5 rounded-md hover:bg-blue-900 transition">
-                    <i class="fa-solid fa-plus"></i>
-                    Add Appointment
+                <button 
+                    class="text-white py-2 px-5 rounded-md transition"
+                    (click)="toggleForm()"
+                    [ngClass]="isFormClicked ? 'bi bi-x bg-red-800 hover:bg-red-700' : 'bi bi-plus bg-blue-950 hover:bg-blue-900'">
+                    <span>{{ isFormClicked ? 'Close form' : 'New appointment' }}</span>
                 </button>
             </div>
         </div>
@@ -80,4 +82,9 @@
             </tr>
         </tbody>
     </table>
+
+    <app-appointments-form 
+        *ngIf="isFormClicked"
+        class="fixed top-0 lg:w-[400px] lg:left-1/3 md:left-1/3 sm:w-[350px] w-full">
+    </app-appointments-form>
 </section>
