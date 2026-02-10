@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { AppointmentsFormComponent } from './appointments-form/appointments-form.component';
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [CommonModule, AppointmentsFormComponent],
+  imports: [CommonModule],
   templateUrl: './appointments.component.html',
   styleUrl: './appointments.component.css'
 })
@@ -26,8 +25,4 @@ export class AppointmentsComponent {
     {patientName: 'Hiro Mataba', doctorName: 'Herve Mashukane', date: 'February 18, 2025', status: 'Pending', time: '3:30PM', viewBtn: 'View', editBtn: 'Edit', cancelBtn: 'Cancel'},
     {patientName: 'Christelle Pelaya', doctorName: 'Hiro Mataba', date: 'January 15, 2025', status: 'Canceled', time: '4:00PM', viewBtn: 'View', editBtn: 'Edit', cancelBtn: 'Cancel'},
   ]
-
-  toggleForm() {
-    this.isFormClicked = !this.isFormClicked;
-  }
 }
