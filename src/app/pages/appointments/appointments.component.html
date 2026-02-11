@@ -60,14 +60,20 @@
                     </button>
                 </td>
                 <td class="flex py-3 px-2 space-x-4">
-                    <button class="bg-blue-800 text-white px-4 py-1 hover:bg-blue-700 rounded-full transition">
-                        {{ appointment.viewBtn }}
+                    <button aria-label="view appointment" title="view appointment" class="bg-blue-800 text-white px-2 py-1 hover:bg-blue-700 rounded-full transition">
+                        <i class="bi bi-eye-fill"></i>
                     </button>
-                    <button class="bg-yellow-800 text-white px-4 py-1 hover:bg-yellow-700 rounded-full transition">
-                        {{ appointment.editBtn }}
+                    <button aria-label="edit appointment" title="edit appointment" class="bg-yellow-800 text-white px-2 py-1 hover:bg-yellow-700 rounded-full transition">
+                        <i class="bi bi-pen"></i>
                     </button>
-                    <button class="bg-red-800 px-4 py-1 text-white hover:bg-red-700 rounded-full transition">
-                        {{ appointment.cancelBtn }}
+                    <button aria-label="complete appointment" title="mark as completed" class="bg-blue-800 text-white px-2 py-1 hover:bg-blue-700 rounded-full transition">
+                        <i class="bi bi-check"></i>
+                    </button>
+                    <button aria-label="pend appointment" title="mark as pended" class="bg-yellow-800 px-2 py-1 text-white hover:bg-yellow-700 rounded-full transition">
+                        <i class="bi bi-clock"></i>
+                    </button>
+                    <button aria-label="cancel appointment" title="mark as canceled" class="bg-red-800 px-2 py-1 text-white hover:bg-red-700 rounded-full transition">
+                        <i class="bi bi-x"></i>
                     </button>
                 </td>
             </tr>
