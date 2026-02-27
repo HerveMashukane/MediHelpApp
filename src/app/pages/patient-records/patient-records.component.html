@@ -46,7 +46,10 @@
                     <p class="text-gray-300">Age: {{ p.age }} <span>years old</span> | Blood Group: {{ p.bloodGroup }}</p>
                 </div>
                 <div class="flex space-x-4">
-                    <button class="bg-blue-800 text-white py-1 px-3 rounded-md mt-2 hover:bg-blue-700 transition">
+                    <button 
+                        (click)="viewPatient(patient)"
+                        class="bg-blue-800 text-white py-1 px-3 rounded-md mt-2 hover:bg-blue-700 transition"
+                        >
                         <i class="bi bi-eye-fill"></i>
                     </button>
                     <button class="bg-yellow-800 text-white py-1 px-3 rounded-md mt-2 hover:bg-yellow-700 transition">
@@ -63,6 +66,13 @@
         <p class="text-gray-500 text-xl text-center">Patients no found...</p>
     </ng-template>
 </section>
+
+<!-- doctor card modal -->
+<app-card-modal
+    [patient]="selectedPatient"
+    [isOpen]="isModelOpen"
+    (close)="closeModel()">
+</app-card-modal>
 
 <!-- patient form -->
 <app-patients-form 

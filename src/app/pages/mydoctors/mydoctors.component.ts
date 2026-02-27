@@ -32,17 +32,17 @@ export class MydoctorsComponent {
 
   // view doctor's details
   selectedDoctor: Doctor | null = null;
-  isModelOpen: boolean = false;
+  isModalOpen: boolean = false;
 
   viewDoctor(doctor: Doctor) {
     this.selectedDoctor = doctor;
-    this.isModelOpen = true;
+    this.isModalOpen = true;
   }
 
   // close details
   closeModel() {
     this.selectedDoctor = null;
-    this.isModelOpen = false;
+    this.isModalOpen = false;
   }
 
   // filter doctors

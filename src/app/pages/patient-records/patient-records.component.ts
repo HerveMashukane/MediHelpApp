@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
 import { Patient } from '../../services/patient-records.service';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogService } from '../../confirm-dialog.service';
+import { CardModalComponent } from '../../reusable-components/card-modal/card-modal.component';
 
 @Component({
   selector: 'app-patient-records',
   standalone: true,
-  imports: [CommonModule, PatientsFormComponent, FormsModule],
+  imports: [CommonModule, PatientsFormComponent, FormsModule, CardModalComponent],
   templateUrl: './patient-records.component.html',
   styleUrl: './patient-records.component.css'
 })
@@ -111,7 +112,6 @@ export class PatientRecordsComponent {
     });
 
     if (!ok) return;
-
     this.patientRecordsService.removePatient(id);
   }
 
@@ -132,6 +132,19 @@ export class PatientRecordsComponent {
       (this.selectedDepartment === 'All' || p.department === this.selectedDepartment) && 
       (this.searchPatient === '' || p.fullName.toLowerCase().includes(this.searchPatient.toLowerCase()))
     );
+  }
+
+  // view patient
+  selectedPatient: Patient | null = null;
+  isModelOpen: boolean = false;
+  closeModel() {
+    this.isModelOpen = false;
+  }
+
+  patient: any;
+  viewPatient(patient: Patient) {
+    this.selectedPatient = patient;
+    this.isModelOpen = false;
   }
 
   // edit patients

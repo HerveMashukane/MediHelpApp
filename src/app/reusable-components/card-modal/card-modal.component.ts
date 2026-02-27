@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Doctor } from '../../services/mydoctors.service';
+import { Patient } from '../../services/patient-records.service';
 
 @Component({
   selector: 'app-card-modal',
@@ -10,7 +11,8 @@ import { Doctor } from '../../services/mydoctors.service';
   styleUrl: './card-modal.component.css'
 })
 export class CardModalComponent {
-  // doctors functionality
+  // doctors & patients functionality
+    @Input() patient: Patient | null = null;
     @Input() doctor: Doctor | null = null;
     @Input() isOpen: boolean = false;
     @Output() close = new EventEmitter<void>();
