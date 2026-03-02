@@ -46,12 +46,14 @@
                     <p class="text-gray-300">Age: {{ p.age }} <span>years old</span> | Blood Group: {{ p.bloodGroup }}</p>
                 </div>
                 <div class="flex space-x-4">
-                    <button 
-                        (click)="viewPatient(p)"
+                    <div *ngFor="let patient of filteredPatients">
+                        <button 
+                        (click)="viewPatient(patient)"
                         class="bg-blue-800 text-white py-1 px-3 rounded-md mt-2 hover:bg-blue-700 transition"
                         >
                         <i class="bi bi-eye-fill"></i>
                     </button>
+                    </div>
                     <button class="bg-yellow-800 text-white py-1 px-3 rounded-md mt-2 hover:bg-yellow-700 transition">
                         <i class="bi bi-pen"></i>
                     </button>
@@ -69,7 +71,7 @@
 
 <!-- doctor card modal -->
 <app-card-modal
-    [p]="selectedPatient"
+    [patient]="selectedPatient"
     [isPatientsModalOpen]="isModelOpen"
     (close)="closeModel()">
 </app-card-modal>
