@@ -1,66 +1,123 @@
-<aside class="h-full w-64 bg-gray-950 border-r border-r-gray-700 shadow-sm overflow-y-auto">
-    <ul class="flex flex-col p-6 space-y-2 text-white">
-        <!-- Dashboard -->
-        <li 
-            routerLink="/dashboard"
-            routerLinkActive="bg-blue-950 text-white font-semibold"
-            class="flex items-center text-white space-x-3 px-4 py-2 rounded-lg hover:bg-blue-950 hover:font-semibold transition cursor-pointer">
-            <i class="fa-solid fa-gauge"></i>
-            <span>Dashboard</span>
-        </li>
+<aside class="h-[calc(100vh-64px)] w-64 bg-gray-950 border-r border-gray-800 overflow-y-auto">
 
-        <!-- Appointments -->
-       <li 
-            routerLink="/appointments"
-            routerLinkActive="bg-blue-950 text-white font-semibold"
-            class="flex items-center text-white space-x-3 px-4 py-2 rounded-lg hover:bg-blue-950 hover:font-semibold transition cursor-pointer">
-            <i class="fa-solid fa-calendar-check"></i>
-            <span>Appointments</span>
-        </li>
+  <ul class="flex flex-col p-5 text-gray-300">
 
-        <!-- Booking Appointments -->
-        <li 
-            routerLink="/bookings"
-            routerLinkActive="bg-blue-950 text-white font-semibold"
-            class="flex items-center text-white space-x-3 px-4 py-2 rounded-lg hover:bg-blue-950 hover:font-semibold transition cursor-pointer">
-            <i class="fa-solid fa-calendar-plus"></i>
-            <span>Bookings</span>
-        </li>
+    <!-- DASHBOARD -->
+    <li
+      routerLink="/dashboard"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer mb-4"
+    >
+      <i class="fa-solid fa-gauge"></i>
+      <span>Dashboard</span>
+    </li>
 
-        <!-- My Doctors -->
-        <li 
-            routerLink="/mydoctor"
-            routerLinkActive="bg-blue-950 text-white font-semibold"
-            class="flex items-center text-white space-x-3 px-4 py-2 rounded-lg hover:bg-blue-950 hover:font-semibold transition cursor-pointer">
-            <i class="fa-solid fa-user-doctor"></i>
-            <span>My Doctors</span>
-        </li>
 
-        <!-- Medication Tracker -->
-        <li 
-            routerLink="/medications"
-            routerLinkActive="bg-blue-950 text-white font-semibold"
-            class="flex items-center text-white space-x-3 px-4 py-2 rounded-lg hover:bg-blue-950 hover:font-semibold transition cursor-pointer">
-            <i class="fa-solid fa-pills"></i>
-            <span>Medication Tracker</span>
-        </li>
+    <!-- CLINICAL -->
+    <p class="text-xs uppercase text-gray-500 px-4 mb-2">Clinical</p>
 
-        <!-- Patient Records -->
-        <li 
-            routerLink="/patients"
-            routerLinkActive="bg-blue-950 text-white font-semibold"
-            class="flex items-center text-white space-x-3 px-4 py-2 rounded-lg hover:bg-blue-950 hover:font-semibold transition cursor-pointer">
-            <i class="fa-solid fa-file-medical"></i>
-            <span>Patient Records</span>
-        </li>
+    <li
+      routerLink="/patients"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer"
+    >
+      <i class="fa-solid fa-user-injured"></i>
+      <span>Patients</span>
+    </li>
 
-        <!-- Settings -->
-        <li 
-            routerLink="/settings"
-            routerLinkActive="bg-blue-950 text-white font-semibold"
-            class="flex items-center text-white space-x-3 px-4 py-2 rounded-lg hover:bg-blue-950 hover:font-semibold transition cursor-pointer">
-            <i class="fa-solid fa-gear"></i>
-            <span>Settings</span>
-        </li>
-    </ul>
+    <li
+      routerLink="/doctors"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer"
+    >
+      <i class="fa-solid fa-user-doctor"></i>
+      <span>Doctors</span>
+    </li>
+
+    <li
+      routerLink="/appointments"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer mb-4"
+    >
+      <i class="fa-solid fa-calendar-check"></i>
+      <span>Appointments</span>
+    </li>
+
+
+    <!-- MEDICAL SERVICES -->
+    <p class="text-xs uppercase text-gray-500 px-4 mb-2">Medical Services</p>
+
+    <li
+      routerLink="/pharmacy"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer"
+    >
+      <i class="fa-solid fa-pills"></i>
+      <span>Pharmacy</span>
+    </li>
+
+    <li
+      routerLink="/laboratory"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer"
+    >
+      <i class="fa-solid fa-flask"></i>
+      <span>Laboratory</span>
+    </li>
+
+    <li
+      routerLink="/radiology"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer mb-4"
+    >
+      <i class="fa-solid fa-x-ray"></i>
+      <span>Radiology</span>
+    </li>
+
+
+    <!-- ADMINISTRATION -->
+    <p class="text-xs uppercase text-gray-500 px-4 mb-2">Administration</p>
+
+    <li
+      routerLink="/billing"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer"
+    >
+      <i class="fa-solid fa-file-invoice-dollar"></i>
+      <span>Billing</span>
+    </li>
+
+    <li
+      routerLink="/insurance"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer"
+    >
+      <i class="fa-solid fa-shield-heart"></i>
+      <span>Insurance</span>
+    </li>
+
+    <li
+      routerLink="/reports"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer mb-4"
+    >
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Reports</span>
+    </li>
+
+
+    <!-- SYSTEM -->
+    <p class="text-xs uppercase text-gray-500 px-4 mb-2">System</p>
+
+    <li
+      routerLink="/settings"
+      routerLinkActive="bg-blue-900 text-white"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-blue-900 hover:text-white transition cursor-pointer"
+    >
+      <i class="fa-solid fa-gear"></i>
+      <span>Settings</span>
+    </li>
+
+  </ul>
+
 </aside>
