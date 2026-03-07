@@ -21,40 +21,40 @@
 
   <!-- Right section -->
   <div class="flex items-center space-x-6 text-gray-600">
-        <!-- Notifications -->
-        <button aria-label="Notifications" class="relative text-2xl text-yellow-500 hover:text-yellow-600 transition">
-          <i class="bi bi-bell-fill"></i>
-          <!-- notification badge -->
-          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">0</span>
-        </button>
+    <!-- Notifications -->
+    <button aria-label="Notifications" class="relative text-2xl text-yellow-500 hover:text-yellow-600 transition">
+      <i class="bi bi-bell-fill"></i>
+      <!-- notification badge -->
+      <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">0</span>
+    </button>
 
-        <!-- User Profile with online indicator -->
-        <div class="relative inline-block">
-          <img 
-            src="/assets/images/herve.png" 
-            alt="user profile"
-            class="object-cover object-center w-10 h-10 rounded-full cursor-pointer border border-white"
-          >
-  
-          <!-- online indicator with hover group -->
-          <div class="absolute bottom-0 right-0">
-            <div class="relative group">
-              <div class="w-3 h-3 bg-green-600 border-2 border-white rounded-full cursor-pointer"></div>
-              
-              <!-- tooltip -->
-              <div 
-                class="absolute -bottom-2 right-0 hidden group-hover:block 
-                bg-blue-500 text-white text-xs p-1 rounded-lg whitespace-nowrap shadow">
-                Online
-              </div>
-            </div>
+    <!-- User Profile with online indicator -->
+    <div class="relative inline-block">
+      <img 
+        src="/assets/images/herve.png" 
+        alt="user profile"
+        class="object-cover object-center w-10 h-10 rounded-full cursor-pointer border border-white"
+      >
+
+      <!-- online indicator with hover group -->
+      <div class="absolute bottom-0 right-0">
+        <div class="relative group">
+          <div class="w-3 h-3 bg-green-600 border-2 border-white rounded-full cursor-pointer"></div>
+          
+          <!-- tooltip -->
+          <div 
+            class="absolute -bottom-2 right-0 hidden group-hover:block 
+            bg-blue-500 text-white text-xs p-1 rounded-lg whitespace-nowrap shadow">
+            Online
           </div>
         </div>
-
-        <!-- Language Switcher -->
-        <select name="language-switcher" class="flex items-center space-x-1 cursor-pointer bg-blue-950 text-white p-1 rounded-md transition">
-            <option value="EN" class="text-sm font-medium">🇬🇧 En</option>
-            <option value="FR" class="text-sm font-medium">🇫🇷 Fr</option>
-        </select>
+      </div>
     </div>
+
+    <!-- Language Switcher -->
+    <select name="language-switcher" class="flex items-center space-x-1 cursor-pointer bg-blue-950 text-white p-1 rounded-md transition">
+      <option value="EN" class="text-sm font-medium">🇬🇧 En</option>
+      <option value="FR" class="text-sm font-medium">🇫🇷 Fr</option>
+    </select>
+  </div>
 </nav>
