@@ -1,4 +1,4 @@
-import { PatientRecordsService } from './../../services/patient-records.service';
+import { PatientRecordsService } from '../../services/patient-records.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PatientsFormComponent } from './patients-form/patients-form.component';
