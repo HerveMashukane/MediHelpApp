@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'
-import { Doctor, MydoctorsService } from '../../../services/mydoctors.service';
+import { FormsModule } from '@angular/forms';
+import { Doctor, DoctorsService } from './../../../services/doctors.service';
 import { EventEmitter, Output } from '@angular/core';
 
 @Component({
@@ -24,7 +24,7 @@ export class DoctorsFormComponent {
   // cancel form
   @Output() cancel = new EventEmitter<void>();
 
-  constructor(private doctorsService: MydoctorsService) {}
+  constructor(private doctorsService: DoctorsService) {}
 
   onSubmit() {
     if (

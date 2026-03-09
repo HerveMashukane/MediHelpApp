@@ -16,10 +16,10 @@ export const routes: Routes = [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'}, //default route
       { path: 'dashboard', component: DashboardComponent },
       { path: 'patients', component: PatientsComponent },
-      { path: 'medications', component: MedicationTrackerComponent },
+      { path: 'pharmacy', component: MedicationTrackerComponent },
       { path: 'appointments', component: AppointmentsComponent },
       {path: 'bookings', component: BookingsComponent},
-      {path: 'mydoctor', component: DoctorsComponent},
+      {path: 'doctors', component: DoctorsComponent},
       {path: 'settings', component: SettingsComponent},
     ]
   }

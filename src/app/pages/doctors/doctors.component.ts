@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { DoctorsFormComponent } from './doctors-form/doctors-form.component';
 import { Observable } from 'rxjs';
-import { Doctor, MydoctorsService } from '../../services/mydoctors.service';
+import { Doctor, DoctorsService } from '../../services/doctors.service';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogService } from '../../confirm-dialog.service';
 import { CardModalComponent } from '../../reusable-components/card-modal/card-modal.component';
@@ -18,7 +18,7 @@ export class DoctorsComponent {
   doctors$: Observable<Doctor[]>;
 
   constructor(
-    private doctorsService: MydoctorsService,
+    private doctorsService: DoctorsService,
     private confirm: ConfirmDialogService
   ) {
     this.doctors$ = this.doctorsService.doctors$;

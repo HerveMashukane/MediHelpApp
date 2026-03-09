@@ -1,9 +1,8 @@
-import { PatientsService } from '../../services/patients-records.service';
+import { Patient, PatientsService } from './../../services/patients.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { PatientsFormComponent } from '../patients/patients-form/patients-form.component';
 import { Observable } from 'rxjs';
-import { Patient } from '../../services/patients-records.service';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogService } from '../../confirm-dialog.service';
 import { CardModalComponent } from '../../reusable-components/card-modal/card-modal.component';
@@ -11,7 +10,7 @@ import { CardModalComponent } from '../../reusable-components/card-modal/card-mo
 @Component({
   selector: 'app-patients',
   standalone: true,
-  imports: [CommonModule, PatientsFormComponent, FormsModule, CardModalComponent],
+  imports: [CommonModule, FormsModule, CardModalComponent, PatientsFormComponent],
   templateUrl: './patients.component.html',
   styleUrl: './patients.component.css'
 })
