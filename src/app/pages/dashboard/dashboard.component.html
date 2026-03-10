@@ -120,34 +120,36 @@
             </h2>
         </div>
         <!-- patient activity table -->
-        <table class="w-full bg-gray-900 text-white">
-            <thead>
-                <tr class="border-2 border-gray-600 text-white text-left text-xl font-semibold">
-                    <th class="border-2 border-gray-600 p-2">Patient</th>
-                    <th class="border-2 border-gray-600 p-2">Doctor</th>
-                    <th class="border-2 border-gray-600 p-2">Date</th>
-                    <th class="border-2 border-gray-600 p-2">Status</th>
-                </tr>
-            </thead>
+        <div class="rounded-xl shadow overflow-hidden">
+            <table class="bg-gray-900 w-full text-left">
+                <thead class="bg-gray-800 text-gray-300 text-sm">
+                    <tr>
+                        <th class="p-4">Patient</th>
+                        <th class="p-4">Doctor</th>
+                        <th class="p-4">Date</th>
+                        <th class="p-4">Status</th>
+                    </tr>
+                </thead>
 
-            <tbody *ngFor="let activity of patientActivities">
-                <tr class="border border-gray-600">
-                    <td class="py-2 border-2 border-gray-600 px-2">{{ activity.patientName }}</td>
-                    <td class="py-2 border-2 border-gray-600 px-2">{{ activity.doctorName }}</td>
-                    <td class="py-2 border-2 border-gray-600 px-2">{{ activity.date }}</td>
-                    <td class="py-2 border-2 border-gray-600 px-2">
-                        <button 
-                            class="px-2 py-1 rounded-full"
-                            [ngClass]="{
-                                'bg-blue-800 text-white hover:bg-blue-700 transition': activity.status === 'Completed',
-                                'bg-yellow-800 text-white hover:bg-yellow-700 transition': activity.status === 'Pending',
-                                'bg-red-800 text-white hover:bg-red-700 transition': activity.status === 'Canceled'
-                            }">
-                            {{ activity.status }}
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody *ngFor="let activity of patientActivities">
+                    <tr class="text-white border-t border-gray-300">
+                        <td class="p-4">{{ activity.patientName }}</td>
+                        <td class="p-4">{{ activity.doctorName }}</td>
+                        <td class="p-4">{{ activity.date }}</td>
+                        <td class="p-4">
+                            <button 
+                                class="px-2 py-1 rounded-full"
+                                [ngClass]="{
+                                    'bg-blue-800 text-white hover:bg-blue-700 transition': activity.status === 'Completed',
+                                    'bg-yellow-800 text-white hover:bg-yellow-700 transition': activity.status === 'Pending',
+                                    'bg-red-800 text-white hover:bg-red-700 transition': activity.status === 'Canceled'
+                                }">
+                                {{ activity.status }}
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </article>
 </section>
