@@ -180,6 +180,8 @@
     </div>
 
     <!-- APPOINTMENTS FORM -->
-    <app-appointments-form *ngIf="isFormVisible">
+    <app-appointments-form 
+        *ngIf="isFormVisible"
+        (close)="toggleFormVisibility()">
     </app-appointments-form>
 </section>

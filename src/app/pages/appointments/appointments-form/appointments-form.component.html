@@ -1,18 +1,18 @@
-<section class="p-10 bg-gray-950 space-y-6 animate-pageFlip">
+<section class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4 lg:p-8 animate-pageFlip">
 
-    <h2 class="text-2xl text-white font-semibold">
-        Book an Appointment
-    </h2>
-
-
-    <div class="grid grid-cols-2 gap-6">
+    <div class="grid grid-cols-2 gap-6 lg:w-[80%]">
 
         <!-- APPOINTMENT FORM -->
         <form class="bg-gray-900 p-8 rounded-xl border border-gray-800 space-y-5">
-
-            <h3 class="text-lg text-white font-semibold">
-                Appointment Details
-            </h3>
+            <!-- text header -->
+            <div class="flex flex-col space-y-4">
+                <h2 class="text-2xl text-white font-semibold">
+                    Book an Appointment
+                </h2>
+                <h3 class="text-lg text-white font-semibold">
+                    Appointment Details
+                </h3>
+            </div>
 
             <!-- Patient Name -->
             <div class="flex flex-col space-y-2">
@@ -21,7 +21,7 @@
                 <input
                     type="text"
                     placeholder="Type patient name..."
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-700 outline-none">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
             </div>
 
 
@@ -34,15 +34,11 @@
 
                 <select
                     (change)="loadSlots()"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
 
                     <option disabled selected>
                         Choose Doctor...
                     </option>
-
-                    <!-- <option *ngFor="let doctor of doctors">
-                        {{ doctor.name }}
-                    </option> -->
 
                 </select>
 
@@ -59,7 +55,7 @@
                 <input
                     type="date"
                     (change)="loadSlots()"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
 
             </div>
 
@@ -76,14 +72,14 @@
                     [value]="selectedSlot"
                     readonly
                     placeholder="Select a slot"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
 
             </div>
 
             <!-- appointment status -->
             <div class="flex flex-col">
                 <label for="status">Status</label>
-                <select name="status" class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
+                <select name="status" class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
                     <option value="" disabled selected>Choose status</option>
                     <option value="Active">Active</option>
                     <option value="Completed">Completed</option>
@@ -102,7 +98,8 @@
                     type="text"
                     readonly
                     placeholder="Type the appointment type..."
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition"
+                    >
             </div>
 
             <!-- Notes -->
@@ -115,7 +112,7 @@
                 <textarea
                     rows="4"
                     placeholder="Additional information"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
                 </textarea>
 
             </div>
@@ -133,10 +130,14 @@
         <!-- SLOT PANEL -->
         <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 space-y-6">
 
-            <h3 class="text-lg text-white font-semibold">
-                Available Time Slots
-            </h3>
-
+            <div class="flex justify-between items-center border-b border-blue-950 pb-4">
+                <h3 class="text-lg text-white font-semibold">
+                    Available Time Slots
+                </h3>
+                <button (click)="onCancel()" type="button" class="text-white hover:text-red-500 transition">
+                        <i class="bi bi-x-circle text-2xl"></i>
+                </button>
+            </div>
 
             <!-- Doctor summary -->
             <div class="flex items-center justify-between bg-gray-950 p-4 rounded-lg">
@@ -152,7 +153,6 @@
                 </div>
 
                 <i class="fa-solid fa-user-doctor text-blue-500 text-xl"></i>
-
             </div>
 
 
@@ -170,13 +170,8 @@
                     class="text-white py-2 rounded-lg transition">
 
                     {{ slot.time }}
-
                 </button>
-
             </div>
-
         </div>
-
     </div>
-
 </section>

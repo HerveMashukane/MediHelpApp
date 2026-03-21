@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { SlotsService } from '../../../services/slots.service';
 
 @Component({
@@ -38,5 +38,11 @@ this.selectedDoctor.slotDuration
     {
       this.selectedSlot = slot.time;
     }
+  }
+
+  // close form
+  @Output() close = new EventEmitter<void>();
+  onCancel() {
+    this.close.emit();
   }
 }
