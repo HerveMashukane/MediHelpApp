@@ -80,12 +80,36 @@
 
             </div>
 
+            <!-- appointment status -->
+            <div class="flex flex-col">
+                <label for="status">Status</label>
+                <select name="status" class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
+                    <option value="" disabled selected>Choose status</option>
+                    <option value="Active">Active</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Canceled">Canceled</option>
+                </select>
+            </div>
+
+            <!-- Selected Time -->
+            <div class="flex flex-col space-y-2">
+                <label class="text-gray-300">
+                    Appointment Type
+                </label>
+
+                <input
+                    type="text"
+                    readonly
+                    placeholder="Type the appointment type..."
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2">
+            </div>
 
             <!-- Notes -->
             <div class="flex flex-col space-y-2">
 
                 <label class="text-gray-300">
-                    Notes
+                    Notes(optional)
                 </label>
 
                 <textarea
