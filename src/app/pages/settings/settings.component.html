@@ -1,130 +1,189 @@
-<section class="p-8 bg-gray-950 text-white min-h-screen">
+<section class="p-8 bg-gray-950 text-white min-h-screen space-y-8 animate-pageFlip">
 
-    <!-- HEADER -->
-    <div class="mb-6">
-        <h1 class="text-3xl font-semibold">Settings</h1>
-        <p class="text-gray-400 text-sm">
-            Manage your account and system preferences
-        </p>
-    </div>
+  <!-- HEADER -->
+  <div class="mb-6">
+    <h1 class="text-3xl font-semibold">Settings</h1>
+    <p class="text-gray-400 text-sm">
+      Manage your account, system preferences, and integrations
+    </p>
+  </div>
 
+  <div class="grid grid-cols-4 gap-6">
 
-    <div class="grid grid-cols-4 gap-6">
+    <!-- LEFT MENU -->
+    <aside class="bg-gray-900 rounded-xl border border-gray-800 p-4 space-y-2">
 
-        <!-- LEFT MENU -->
-        <aside class="bg-gray-900 rounded-xl border border-gray-800 p-4 space-y-2">
+      <button (click)="activeTab='profile'"
+        [ngClass]="activeTab==='profile' ? 'bg-blue-700' : 'hover:bg-gray-800'"
+        class="w-full text-left px-4 py-2 rounded-lg flex items-center gap-2">
+        <i class="bi bi-person-fill"></i> Profile
+      </button>
 
-            <button (click)="activeTab='profile'"
-                [ngClass]="activeTab==='profile' ? 'bg-blue-700' : 'hover:bg-gray-800'"
-                class="w-full text-left px-4 py-2 rounded-lg">
-                Profile
-            </button>
+      <button (click)="activeTab='security'"
+        [ngClass]="activeTab==='security' ? 'bg-blue-700' : 'hover:bg-gray-800'"
+        class="w-full text-left px-4 py-2 rounded-lg flex items-center gap-2">
+        <i class="bi bi-shield-lock-fill"></i> Security
+      </button>
 
-            <button (click)="activeTab='security'"
-                [ngClass]="activeTab==='security' ? 'bg-blue-700' : 'hover:bg-gray-800'"
-                class="w-full text-left px-4 py-2 rounded-lg">
-                Security
-            </button>
+      <button (click)="activeTab='notifications'"
+        [ngClass]="activeTab==='notifications' ? 'bg-blue-700' : 'hover:bg-gray-800'"
+        class="w-full text-left px-4 py-2 rounded-lg flex items-center gap-2">
+        <i class="bi bi-bell-fill"></i> Notifications
+      </button>
 
-            <button (click)="activeTab='notifications'"
-                [ngClass]="activeTab==='notifications' ? 'bg-blue-700' : 'hover:bg-gray-800'"
-                class="w-full text-left px-4 py-2 rounded-lg">
-                Notifications
-            </button>
+      <button (click)="activeTab='appearance'"
+        [ngClass]="activeTab==='appearance' ? 'bg-blue-700' : 'hover:bg-gray-800'"
+        class="w-full text-left px-4 py-2 rounded-lg flex items-center gap-2">
+        <i class="bi bi-palette-fill"></i> Appearance
+      </button>
 
-            <button (click)="activeTab='appearance'"
-                [ngClass]="activeTab==='appearance' ? 'bg-blue-700' : 'hover:bg-gray-800'"
-                class="w-full text-left px-4 py-2 rounded-lg">
-                Appearance
-            </button>
+      <button (click)="activeTab='integrations'"
+        [ngClass]="activeTab==='integrations' ? 'bg-blue-700' : 'hover:bg-gray-800'"
+        class="w-full text-left px-4 py-2 rounded-lg flex items-center gap-2">
+        <i class="bi bi-plug-fill"></i> Integrations
+      </button>
 
-        </aside>
+      <button (click)="activeTab='activity'"
+        [ngClass]="activeTab==='activity' ? 'bg-blue-700' : 'hover:bg-gray-800'"
+        class="w-full text-left px-4 py-2 rounded-lg flex items-center gap-2">
+        <i class="bi bi-clock-history"></i> Account Activity
+      </button>
 
+    </aside>
 
-        <!-- RIGHT CONTENT -->
-        <div class="col-span-3 space-y-6">
+    <!-- RIGHT CONTENT -->
+    <div class="col-span-3 space-y-6">
 
-            <!-- PROFILE -->
-            <div *ngIf="activeTab==='profile'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
+      <!-- PROFILE -->
+      <div *ngIf="activeTab==='profile'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
+        <h2 class="text-lg font-semibold">Profile Information</h2>
 
-                <h2 class="text-lg font-semibold">Profile Information</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Full Name"
+            class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
 
-                <input type="text" placeholder="Full Name"
-                    class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
-
-                <input type="email" placeholder="Email"
-                    class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
-
-                <button class="bg-blue-700 px-5 py-2 rounded-lg">
-                    Save Profile
-                </button>
-
-            </div>
-
-
-            <!-- SECURITY -->
-            <div *ngIf="activeTab==='security'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
-
-                <h2 class="text-lg font-semibold">Security</h2>
-
-                <input type="password" placeholder="Current Password"
-                    class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
-
-                <input type="password" placeholder="New Password"
-                    class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
-
-                <button class="bg-red-700 px-5 py-2 rounded-lg">
-                    Update Password
-                </button>
-
-            </div>
-
-
-            <!-- NOTIFICATIONS -->
-            <div *ngIf="activeTab==='notifications'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
-
-                <h2 class="text-lg font-semibold">Notifications</h2>
-
-                <div class="flex justify-between">
-                    <span>Email Notifications</span>
-                    <input type="checkbox">
-                </div>
-
-                <div class="flex justify-between">
-                    <span>SMS Notifications</span>
-                    <input type="checkbox">
-                </div>
-
-                <div class="flex justify-between">
-                    <span>Push Notifications</span>
-                    <input type="checkbox">
-                </div>
-
-                <button class="bg-blue-700 px-5 py-2 rounded-lg">
-                    Save Preferences
-                </button>
-
-            </div>
-
-
-            <!-- APPEARANCE -->
-            <div *ngIf="activeTab==='appearance'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
-
-                <h2 class="text-lg font-semibold">Appearance</h2>
-
-                <div class="flex justify-between">
-                    <span>Dark Mode</span>
-                    <input type="checkbox" checked>
-                </div>
-
-                <button class="bg-blue-700 px-5 py-2 rounded-lg">
-                    Save Appearance
-                </button>
-
-            </div>
-
+          <input type="email" placeholder="Email"
+            class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
         </div>
 
+        <input type="text" placeholder="Phone Number"
+          class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
+
+        <button class="bg-blue-700 px-5 py-2 rounded-lg hover:bg-blue-600 transition">
+          Save Profile
+        </button>
+      </div>
+
+      <!-- SECURITY -->
+      <div *ngIf="activeTab==='security'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
+        <h2 class="text-lg font-semibold">Security Settings</h2>
+
+        <input type="password" placeholder="Current Password"
+          class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
+        <input type="password" placeholder="New Password"
+          class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3">
+
+        <div class="flex items-center gap-2">
+          <input type="checkbox" id="twoFactor">
+          <label for="twoFactor" class="text-gray-400">Enable Two-Factor Authentication</label>
+        </div>
+
+        <button class="bg-red-700 px-5 py-2 rounded-lg hover:bg-red-600 transition">
+          Update Password
+        </button>
+      </div>
+
+      <!-- NOTIFICATIONS -->
+      <div *ngIf="activeTab==='notifications'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
+        <h2 class="text-lg font-semibold">Notification Preferences</h2>
+
+        <div class="flex justify-between">
+          <span>Email Notifications</span>
+          <input type="checkbox" checked>
+        </div>
+
+        <div class="flex justify-between">
+          <span>SMS Notifications</span>
+          <input type="checkbox">
+        </div>
+
+        <div class="flex justify-between">
+          <span>Push Notifications</span>
+          <input type="checkbox" checked>
+        </div>
+
+        <button class="bg-blue-700 px-5 py-2 rounded-lg hover:bg-blue-600 transition">
+          Save Preferences
+        </button>
+      </div>
+
+      <!-- APPEARANCE -->
+      <div *ngIf="activeTab==='appearance'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
+        <h2 class="text-lg font-semibold">Appearance & Theme</h2>
+
+        <div class="flex justify-between items-center">
+          <span>Dark Mode</span>
+          <input type="checkbox" checked>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span>System Theme Sync</span>
+          <input type="checkbox">
+        </div>
+
+        <button class="bg-blue-700 px-5 py-2 rounded-lg hover:bg-blue-600 transition">
+          Save Appearance
+        </button>
+      </div>
+
+      <!-- INTEGRATIONS -->
+      <div *ngIf="activeTab==='integrations'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
+        <h2 class="text-lg font-semibold">Integrations</h2>
+
+        <div class="flex justify-between items-center">
+          <span>Google Calendar</span>
+          <button class="bg-green-600 px-3 py-1 rounded-lg text-xs hover:bg-green-500 transition">Connect</button>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span>Slack Notifications</span>
+          <button class="bg-green-600 px-3 py-1 rounded-lg text-xs hover:bg-green-500 transition">Connect</button>
+        </div>
+
+        <div class="flex justify-between items-center">
+          <span>API Access</span>
+          <button class="bg-blue-700 px-3 py-1 rounded-lg text-xs hover:bg-blue-600 transition">Generate Token</button>
+        </div>
+      </div>
+
+      <!-- ACCOUNT ACTIVITY -->
+      <div *ngIf="activeTab==='activity'" class="bg-gray-900 p-6 rounded-xl border border-gray-800 space-y-4">
+        <h2 class="text-lg font-semibold">Account Activity</h2>
+
+        <table class="w-full text-left">
+          <thead class="bg-gray-800 text-gray-300 text-sm">
+            <tr>
+              <th class="p-3">Date</th>
+              <th class="p-3">Action</th>
+              <th class="p-3">IP Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t border-gray-800 hover:bg-gray-800 transition">
+              <td class="p-3">2026-03-23 10:12</td>
+              <td class="p-3">Logged In</td>
+              <td class="p-3">192.168.1.101</td>
+            </tr>
+            <tr class="border-t border-gray-800 hover:bg-gray-800 transition">
+              <td class="p-3">2026-03-22 18:45</td>
+              <td class="p-3">Password Updated</td>
+              <td class="p-3">192.168.1.101</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
     </div>
+  </div>
 
 </section>
