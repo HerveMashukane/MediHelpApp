@@ -5,23 +5,14 @@ import { FormsModule } from '@angular/forms'
 export interface RadiologyExam {
 
   id: string
-
   patient: string
-
   examType: 'X-Ray' | 'MRI' | 'CT Scan' | 'Ultrasound'
-
   bodyPart: string
-
   doctor: string
-
   radiologist: string
-
   date: string
-
   status: 'Pending' | 'In Review' | 'Completed' | 'Urgent'
-
   report?: string
-
   imageUrl?: string
 
 }
