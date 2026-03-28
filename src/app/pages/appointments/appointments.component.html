@@ -40,7 +40,7 @@
             <p class="text-gray-400 text-sm">Canceled</p>
             <h2 class="text-2xl font-semibold text-red-400">32</h2>
         </div>
-
+        
     </div>
 
 
@@ -85,77 +85,82 @@
     <!-- TABLE -->
     <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
 
-        <table class="w-full text-left">
+        <div *ngIf="patientAppointments.length > 0; else noAppointments">
+            <table class="w-full text-left">
 
-            <thead class="bg-gray-800 text-gray-300 text-sm">
-                <tr>
-                    <th class="p-4">Patient</th>
-                    <th class="p-4">Doctor</th>
-                    <th class="p-4">Date</th>
-                    <th class="p-4">Time</th>
-                    <th class="p-4">Type</th>
-                    <th class="p-4">Status</th>
-                    <th class="p-4">Actions</th>
-                </tr>
-            </thead>
+                <thead class="bg-gray-800 text-gray-300 text-sm">
+                    <tr>
+                        <th class="p-4">Patient</th>
+                        <th class="p-4">Doctor</th>
+                        <th class="p-4">Date</th>
+                        <th class="p-4">Time</th>
+                        <th class="p-4">Type</th>
+                        <th class="p-4">Status</th>
+                        <th class="p-4">Actions</th>
+                    </tr>
+                </thead>
 
-            <tbody>
+                <tbody>
 
-                <tr *ngFor="let appointment of patientAppointments"
-                    class="border-t border-gray-800 hover:bg-gray-800 transition">
-                    <td class="p-4 font-medium">
-                        {{ appointment.patientName }}
-                    </td>
-                    <td class="p-4">
-                        {{ appointment.doctorName }}
-                    </td>
-                    <td class="p-4">
-                        {{ appointment.date }}
-                    </td>
-                    <td class="p-4">
-                        {{ appointment.time }}
-                    </td>
-                    <td class="p-4 text-sm text-gray-400">
-                        Consultation
-                    </td>
+                    <tr *ngFor="let appointment of patientAppointments"
+                        class="border-t border-gray-800 hover:bg-gray-800 transition">
+                        <td class="p-4 font-medium">
+                            {{ appointment.patientName }}
+                        </td>
+                        <td class="p-4">
+                            {{ appointment.doctorName }}
+                        </td>
+                        <td class="p-4">
+                            {{ appointment.date }}
+                        </td>
+                        <td class="p-4">
+                            {{ appointment.time }}
+                        </td>
+                        <td class="p-4 text-sm text-gray-400">
+                            Consultation
+                        </td>
 
-                    <!-- STATUS -->
-                    <td class="p-4">
-                        <span
-                            class="px-3 py-1 text-xs rounded-full"
-                            [ngClass]="{
-                                'bg-green-700 text-white': appointment.status === 'Completed',
-                                'bg-yellow-700 text-white': appointment.status === 'Pending',
-                                'bg-red-700 text-white': appointment.status === 'Canceled',
-                                'bg-blue-700 text-white': appointment.status === 'Upcoming'
-                            }"
-                        >
-                            {{ appointment.status }}
-                        </span>
-                    </td>
+                        <!-- STATUS -->
+                        <td class="p-4">
+                            <span
+                                class="px-3 py-1 text-xs rounded-full"
+                                [ngClass]="{
+                                    'bg-green-700 text-white': appointment.status === 'Completed',
+                                    'bg-yellow-700 text-white': appointment.status === 'Pending',
+                                    'bg-red-700 text-white': appointment.status === 'Canceled',
+                                    'bg-blue-700 text-white': appointment.status === 'Upcoming'
+                                }"
+                            >
+                                {{ appointment.status }}
+                            </span>
+                        </td>
 
-                    <!-- ACTIONS -->
-                    <td class="p-4 flex space-x-2">
-                        <button
-                            class="bg-blue-700 px-3 py-1 rounded-md hover:bg-blue-600">
-                            View
-                        </button>
-                        <button
-                            class="bg-yellow-600 px-3 py-1 rounded-md hover:bg-yellow-500">
-                            Edit
-                        </button>
-                        <button
-                            class="bg-green-700 px-3 py-1 rounded-md hover:bg-green-600">
-                            Complete
-                        </button>
-                        <button
-                            class="bg-red-700 px-3 py-1 rounded-md hover:bg-red-600">
-                            Cancel
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        <!-- ACTIONS -->
+                        <td class="p-4 flex space-x-2">
+                            <button
+                                class="bg-blue-700 px-3 py-1 rounded-md hover:bg-blue-600">
+                                View
+                            </button>
+                            <button
+                                class="bg-yellow-600 px-3 py-1 rounded-md hover:bg-yellow-500">
+                                Edit
+                            </button>
+                            <button
+                                class="bg-green-700 px-3 py-1 rounded-md hover:bg-green-600">
+                                Complete
+                            </button>
+                            <button
+                                class="bg-red-700 px-3 py-1 rounded-md hover:bg-red-600">
+                                Cancel
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ng-template #noAppointments>
+            <h2 class="text-gray-500 text-center text-2xl p-4">No appointments found.</h2>
+        </ng-template>
 
     </div>
 
