@@ -34,22 +34,42 @@
                         </div>
                 </div>
 
-                <!-- schedule -->
-                <div class="flex flex-col">
-                        <label for="schedule" class="font-medium">Schedue</label>
-                        <select 
-                                name="schedule" 
-                                id="schedule"
-                                [(ngModel)]="schedule"
-                                required
-                                class="bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
-                                <option value="" disabled>Select schedule</option>
-                                <option value="Morning(06-08AM)">Morning(06:30AM)</option>
-                                <option value="Noon(12-2PM)">Afternoon(12:30PM)</option>
-                                <option value="Evenening(6-8PM)">Evenening(6:30PM)</option>
-                                <option value="Once(a day)">Once a day</option>
-                                <option value="Twice(a day)">Twice a day</option>
-                        </select>
+                <!-- schedule and status -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- schedule -->
+                        <div class="flex flex-col">
+                                <label for="schedule" class="font-medium">Schedue</label>
+                                <select 
+                                        name="schedule" 
+                                        id="schedule"
+                                        [(ngModel)]="schedule"
+                                        required
+                                        class="bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
+                                        <option value="" disabled>Select schedule</option>
+                                        <option value="Morning(06-08AM)">Morning(06-08AM)</option>
+                                        <option value="Noon(12-2PM)">Noon(12-2PM)</option>
+                                        <option value="Evenening(6-8PM)">Evenening(6-8PM)</option>
+                                        <option value="Once(a day)">Once(a day)</option>
+                                        <option value="Twice(a day)">Twice(a day)</option>
+                                        <option value="Three-Times(a day)">Three-Times(a day)</option>
+                                </select>
+                        </div>
+                        <!-- status -->
+                        <div class="flex flex-col">
+                                <label for="status" class="font-medium">Medication Status</label>
+                                <select 
+                                        name="status" 
+                                        id="status"
+                                        [(ngModel)]="status"
+                                        required
+                                        class="block bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 text-white focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
+                                        <option value="" disabled selected>Choose status</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Completed">Completed</option>
+                                </select>
+                        </div>
                 </div>
 
                 <!-- Dosage & currency -->
@@ -97,7 +117,7 @@
                                         class="bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
                         </div>
                         <!-- end date -->
-                         <div>
+                        <div>
                                 <label for="progress" class="font-medium">End Date</label>
                                 <input 
                                         type="date"
@@ -108,37 +128,17 @@
                                         class="bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
                         </div>
                 </div>
-
-                <!-- status and progress -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <!-- status -->
-                        <div class="flex flex-col">
-                                <label for="status" class="font-medium">Medication Status</label>
-                                <select 
-                                        name="status" 
-                                        id="status"
-                                        [(ngModel)]="status"
-                                        required
-                                        class="block bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 text-white focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
-                                        <option value="" disabled selected>Choose status</option>
-                                        <option value="Active">Active</option>
-                                        <option value="Inactive">Inactive</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Completed">Completed</option>
-                                </select>
-                        </div>
-                        <!-- progress -->
-                        <!-- <div>
-                                <label for="progress" class="font-medium">Medication Progress</label>
-                                <input 
-                                        type="range"
-                                        id="progress" 
-                                        name="progress" 
-                                        [(ngModel)]="progress"
-                                        min="0"
-                                        required
-                                        class="bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
-                        </div> -->
+                <!-- notes(optional) -->
+                <div class="flex flex-col">
+                        <label for="notes" class="font-medium">Notes (Optional)</label>
+                        <textarea 
+                                id="notes" 
+                                name="notes" 
+                                [(ngModel)]="notes"
+                                 placeholder="Additional notes about the medication..." 
+                                 rows="4"
+                                class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-950 transition">
+                        </textarea>
                 </div>
 
                 <!-- Buttons -->
