@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { MedicationFormComponent } from './medication-form/medication-form.component';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Medication, MedicationService } from '../../services/medication.service';
+import { Medication, MedicationService } from '../../services/medication/medication.service';
 
 @Component({
   selector: 'app-pharmacy',
@@ -20,7 +20,7 @@ export class PharmacyComponent {
     this.medications$ = this.medicationService.medications$;
   }
 
-  closeFormFromChild() {
+  closeFromChild() {
     this.isFormVisible = false;
   }
   toggleForm() {

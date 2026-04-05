@@ -22,7 +22,7 @@
                     type="text"
                     placeholder="Type patient name..."
                     [(ngModel)]="patientName"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
             </div>
 
 
@@ -35,7 +35,7 @@
 
                 <select
                     (change)="loadSlots()"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
 
                     <option disabled selected>
                         Choose Doctor...
@@ -55,7 +55,7 @@
                 <input
                     type="date"
                     (change)="loadSlots()"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
 
             </div>
 
@@ -72,14 +72,14 @@
                     [value]="selectedSlot"
                     readonly
                     placeholder="Select a slot"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
 
             </div>
 
             <!-- appointment status -->
             <div class="flex flex-col space-y-2">
                 <label for="status">Status</label>
-                <select name="status" class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
+                <select name="status" class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
                     <option value="" disabled selected>Choose status</option>
                     <option value="Active">Active</option>
                     <option value="Completed">Completed</option>
@@ -97,7 +97,7 @@
                 <input
                     type="text"
                     placeholder="Type the appointment type..."
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition"
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
                     >
             </div>
 
@@ -111,7 +111,7 @@
                 <textarea
                     rows="4"
                     placeholder="Additional information"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300 transition">
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
                 </textarea>
 
             </div>

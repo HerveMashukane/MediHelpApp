@@ -10,8 +10,12 @@
         Manage lab tests, results and patient samples
       </p>
     </div>
-    <button class="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition">
-      + New Lab Test
+    <button 
+      (click)="toggleForm()" 
+      class="bg-blue-950 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition"
+      [ngClass]="isFormVisible ? 'bg-red-950 hover:bg-red-900' : 'bg-blue-950 hover:bg-blue-900'">
+      <i [class]="isFormVisible? 'bi bi-x' : 'bi bi-plus'"></i>
+      {{ isFormVisible ? 'Close Form' : 'New Lab Test' }}
     </button>
   </div>
 
@@ -45,14 +49,14 @@
     <input
       type="text"
       placeholder="Search patient..."
-      class="w-64 px-3 py-2 bg-gray-900 border border-gray-700 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+      class="w-64 px-3 py-2 bg-gray-900 border text-white border-gray-700 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
     />
 
     <select class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
       <option value="" disabled selected>All Tests</option>
       <option>Blood Test</option>
       <option>Urine Test</option>
-      <option>Covid Test</option>
+      <option>Whole Body Test</option>
     </select>
 
     <select class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-800">
@@ -78,68 +82,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="border-b border-gray-800 hover:bg-gray-900 transition">
-          <td class="p-3">Herve Mashukane</td>
-          <td class="p-3">Blood Test</td>
-          <td class="p-3">Dr. Adams</td>
-          <td class="p-3">10 Mar 2026</td>
-          <td class="p-3">
-            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs">
-              Pending
-            </span>
-          </td>
-          <td class="p-3 flex gap-2">
-            <button class="text-blue-600 hover:underline">
-              View
-            </button>
-            <button class="text-green-600 hover:underline">
-              Result
-            </button>
-          </td>
-        </tr>
-        <tr class="border-b border-gray-800 hover:bg-gray-900 transition">
-          <td class="p-3">Herve Mashukane</td>
-          <td class="p-3">Blood Test</td>
-          <td class="p-3">Dr. Adams</td>
-          <td class="p-3">10 Mar 2026</td>
-          <td class="p-3">
-            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs">
-              Pending
-            </span>
-          </td>
-          <td class="p-3 flex gap-2">
-            <button class="text-blue-600 hover:underline">
-              View
-            </button>
-            <button class="text-green-600 hover:underline">
-              Result
-            </button>
-          </td>
-        </tr>
-        <tr class="border-b border-gray-800 hover:bg-gray-900 transition">
-          <td class="p-3">Herve Mashukane</td>
-          <td class="p-3">Blood Test</td>
-          <td class="p-3">Dr. Adams</td>
-          <td class="p-3">10 Mar 2026</td>
-          <td class="p-3">
-            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs">
-              Pending
-            </span>
-          </td>
-          <td class="p-3 flex gap-2">
-            <button class="text-blue-600 hover:underline">
-              View
-            </button>
-            <button class="text-green-600 hover:underline">
-              Result
-            </button>
-          </td>
-        </tr>
-        <tr class="text-white border-t border-gray-300">
-          <td class="p-3">Herve Mashukane</td>
-          <td class="p-3">Blood Test</td>
-          <td class="p-3">Dr. Adams</td>
-          <td class="p-3">10 Mar 2026</td>
+        <tr 
+          *ngFor="let test of filteredTests"
+          class="border-b border-gray-800 hover:bg-gray-900 transition">
+          <td class="p-3">{{ test.patientName }}</td>
+          <td class="p-3">{{ test.testType }}</td>
+          <td class="p-3">{{ test.doctorName }}</td>
+          <td class="p-3">{{ test.date }}</td>
           <td class="p-3">
             <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs">
               Pending
@@ -158,3 +107,8 @@
     </table>
   </div>
 </section>
+
+<app-laboratory-form
+  *ngIf="isFormVisible"
+  (cancel)="closeFromChild()">
+</app-laboratory-form>

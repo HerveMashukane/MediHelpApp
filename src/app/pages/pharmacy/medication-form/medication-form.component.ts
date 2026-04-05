@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Medication, MedicationService } from '../../../services/medication.service';
+import { Medication, MedicationService } from '../../../services/medication/medication.service';
 
 @Component({
   selector: 'app-medication-form',

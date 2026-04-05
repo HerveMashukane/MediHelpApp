@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Doctor, DoctorsService } from './../../../services/doctors.service';
+import { Doctor, DoctorsService } from '../../../services/doctors/doctors.service';
 import { EventEmitter, Output } from '@angular/core';
 
 @Component({

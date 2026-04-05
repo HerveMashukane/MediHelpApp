@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AppointmentsFormComponent } from './appointments-form/appointments-form.component';
-import { Appointment } from '../../services/appointment.service';
+import { Appointment } from '../../services/appointments/appointment.service';
 
 @Component({
   selector: 'app-appointments',

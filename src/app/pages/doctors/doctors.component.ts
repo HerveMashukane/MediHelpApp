@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { DoctorsFormComponent } from './doctors-form/doctors-form.component';
 import { Observable } from 'rxjs';
-import { Doctor, DoctorsService } from '../../services/doctors.service';
+import { Doctor, DoctorsService } from '../../services/doctors/doctors.service';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDialogService } from '../../confirm-dialog.service';
 import { CardModalComponent } from '../../reusable-components/card-modal/card-modal.component';
