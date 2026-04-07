@@ -37,7 +37,8 @@ export class LaboratoryFormComponent {
         status: this.status as 'Active' | 'Inactive' | 'Pending' | 'Completed' | 'Canceled',
       }
       this.laboratoryService.addLaboTest(newLaboTest);
-      this.resetForm()
+      this.resetForm();
+      this.closeForm();
     }
   }
 

@@ -1,27 +1,37 @@
-# MediHelpApp
+# MediHelper - Healthcare Management Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+MediHelper is a scalable healthcare management dashboard interface built using Angular, TypeScript, and Tailwind CSS.
 
-## Development server
+## 🚀 Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Dashboard overview interface
+- Patient management UI
+- Doctor management system
+- Appointment scheduling interface
+- Billing and insurance modules
+- Laboratory, pharmacy, and radiology sections
+- Administrative and system settings UI
 
-## Code scaffolding
+## 🛠 Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular
+- TypeScript
+- Tailwind CSS
 
-## Build
+## 🎯 Purpose
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This project demonstrates the ability to design and build complex, real-world dashboard interfaces with multiple interconnected modules.
 
-## Running unit tests
+## 🧱 Architecture
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Modular and scalable frontend structure
+- Feature-based organization
+- Reusable UI components
 
-## Running end-to-end tests
+## 📸 Screenshots
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![medihelper screenshot](medihelper_overview.png)
 
-## Further help
+## 📌 Notes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project focuses on frontend architecture and UI design for large-scale applications.
