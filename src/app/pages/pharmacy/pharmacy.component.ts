@@ -61,4 +61,10 @@ export class PharmacyComponent {
 
     return Math.round(((this.currentTime - start) / (end - start)) * 100);
   }
+
+  // toiggle action menu in table
+  activeMenuIndex: number | null = null;
+  toggleMenu(index: number) {
+    this.activeMenuIndex = this.activeMenuIndex === index ? null : index;
+  }
 }

@@ -47,12 +47,12 @@
   </div>
 
   <!-- MEDICATION TABLE -->
-  <div class="bg-gray-950 p-6 rounded-md shadow-2xl overflow-x-auto">
+  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
 
     <div *ngIf="filteredMedications.length > 0; else noMedications">
       <table class="w-full text-white">
 
-        <thead class="bg-gray-900 text-gray-200">
+        <thead class="bg-gray-800 text-gray-300 text-sm">
           <tr class="text-left text-sm uppercase">
             <th class="p-3">Medication</th>
             <th class="p-3">Dosage</th>
@@ -69,8 +69,8 @@
         <tbody>
 
           <tr
-            *ngFor="let med of filteredMedications"
-            class="border-b border-gray-800 hover:bg-gray-900 transition"
+            *ngFor="let med of filteredMedications; let i = index"
+            class="border-t border-gray-800 hover:bg-gray-800 transition"
           >
 
             <td class="p-3 font-semibold">{{ med.medName }}</td>
@@ -108,31 +108,40 @@
                 {{ med.status }}
               </span>
 
-            </td>
+              <td class="p-3 relative">
+                <!-- 3 dots button -->
+                <button
+                  (click)="toggleMenu(i)"
+                  class="bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded-md text-white transition"
+                >
+                  ⋮
+                </button>
 
-            <!-- ACTIONS -->
-            <td class="p-3 flex gap-2">
+                <!-- Dropdown -->
+                <div
+                  *ngIf="activeMenuIndex === i"
+                  class="absolute right-2 mt-2 w-44 bg-gray-900 border border-gray-700 rounded-lg shadow-xl z-50 overflow-hidden"
+                >
 
-              <button
-                class="bg-yellow-700 px-3 py-1 rounded-full hover:bg-yellow-600"
-              >
-                Edit
-              </button>
+                  <button class="w-full text-left px-4 py-2 hover:bg-gray-800 text-white">
+                    View
+                  </button>
 
-              <button
-                class="bg-red-800 px-3 py-1 rounded-full hover:bg-red-700"
-              >
-                Delete
-              </button>
+                  <button class="w-full text-left px-4 py-2 hover:bg-gray-800 text-yellow-400">
+                    Edit
+                  </button>
 
-              <button
-                class="bg-blue-800 px-3 py-1 rounded-full hover:bg-blue-700"
-              >
-                View
-              </button>
+                  <button class="w-full text-left px-4 py-2 hover:bg-gray-800 text-blue-400">
+                    Mark Adherent
+                  </button>
 
-            </td>
+                  <button class="w-full text-left px-4 py-2 hover:bg-red-900 text-red-400">
+                    Delete
+                  </button>
 
+                </div>
+
+              </td>
           </tr>
 
         </tbody>
