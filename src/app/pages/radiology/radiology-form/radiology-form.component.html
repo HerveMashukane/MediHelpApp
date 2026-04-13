@@ -1,13 +1,13 @@
 <section class="fixed inset-0 flex items-center justify-center bg-black/70 p-4 lg:p-8 animate-pageFlip">
-    <!-- LABORATORY FORM -->
+    <!-- RADIOLOGY FORM -->
     <form class="bg-gray-900 p-8 rounded-xl border border-gray-800 space-y-5">
         <!-- text header -->
         <div class="flex flex-col space-y-4">
             <h2 class="text-2xl text-white font-semibold">
-                Laboratory tests form
+                Radiology Exams form
             </h2>
             <h3 class="text-lg text-white font-semibold">
-                Laboratory details
+                Exam details
             </h3>
         </div>
 
@@ -44,17 +44,17 @@
             </div>
         </div>
 
-        <!-- test status and type -->
+        <!-- Exam type and concerned body part -->
         <div class="grid grid-cols-2 gap-4">
-            <!-- test status -->
+            <!-- Exam type -->
             <div class="flex flex-col space-y-2">
-                <label for="status" class="text-gray-300">Status</label>
+                <label for="status" class="text-gray-300">Type</label>
                 <select name="status" class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-                    <option value="" disabled>Choose status</option>
-                    <option value="Active">Active</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Pending">Pending</option>
-                    <option value="Canceled">Canceled</option>
+                    <option value="" disabled>Choose exam type</option>
+                    <option value="X-Ray">X-Ray</option>
+                    <option value="MRI">MRI</option>
+                    <option value="CT Scan">CT Scan</option>
+                    <option value="Ultrasound">Ultrasound</option>
                 </select>
             </div>
 
@@ -62,17 +62,17 @@
             <div class="flex flex-col space-y-2">
 
                 <label for="testType" class="text-gray-300">
-                    Select test type
+                    Select Concerned Body Part
                 </label>
 
                 <select
                     name="testType"
                     class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-                    <option value="" disabled>Choose type...</option>
-                    <option value="Blood Test">Blood Test</option>
-                    <option value="Urine Test">Urine Test</option>
-                    <option value="HIV Test">HIV Test</option>
-                    <option value="Malaria Test">Malaria Test</option>
+                    <option value="" disabled>Choose part...</option>
+                    <option value="Chest">Chest</option>
+                    <option value="Brain">Brain</option>
+                    <option value="Abdomen">Abdomen</option>
+                    <option value="Kidney">Kidney</option>
                     <option value="Whole Body Test">Whole Body Test</option>
                 </select>
 
