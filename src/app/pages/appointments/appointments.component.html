@@ -1,204 +1,220 @@
 <section class="p-8 bg-gray-950 text-white min-h-screen space-y-8 animate-pageFlip">
 
-    <!-- PAGE HEADER -->
-    <div class="flex items-center justify-between">
-        <div>
-            <h1 class="text-3xl font-semibold">Appointments</h1>
-            <p class="text-gray-400 text-sm">
-                Manage patient appointments and scheduling
-            </p>
-        </div>
-        <button 
-            (click)="toggleFormVisibility()"
-            [ngClass]="isFormVisible ? 'bi bi-x bg-red-800 hover:bg-red-700' : 'bi bi-plus bg-blue-900 hover:bg-blue-700'"
-            class="px-5 py-2 rounded-lg font-medium transition"
+  <!-- HEADER -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+    <div>
+      <h1 class="text-3xl font-semibold">Appointments</h1>
+      <p class="text-gray-400 text-sm">
+        Manage patient appointments and scheduling
+      </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+
+      <!-- PRIMARY ACTION -->
+      <button
+        (click)="toggleFormVisibility()"
+        class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-lg font-medium transition"
+      >
+        {{ isFormVisible ? 'Close Form' : 'New Appointment' }}
+      </button>
+
+      <!-- OPTIONAL ACTION -->
+      <button class="border border-gray-700 hover:bg-gray-800 px-4 py-2 rounded-lg transition text-sm">
+        Calendar
+      </button>
+
+    </div>
+  </div>
+
+  <!-- STATS (now clickable-ready structure) -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+    <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 cursor-pointer hover:border-sky-500 transition">
+      <p class="text-gray-400 text-sm">Total</p>
+      <h2 class="text-2xl font-semibold">324</h2>
+    </div>
+
+    <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 cursor-pointer hover:border-sky-500 transition">
+      <p class="text-gray-400 text-sm">Upcoming</p>
+      <h2 class="text-2xl font-semibold text-sky-400">102</h2>
+    </div>
+
+    <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 cursor-pointer hover:border-sky-500 transition">
+      <p class="text-gray-400 text-sm">Completed</p>
+      <h2 class="text-2xl font-semibold text-green-400">190</h2>
+    </div>
+
+    <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 cursor-pointer hover:border-sky-500 transition">
+      <p class="text-gray-400 text-sm">Canceled</p>
+      <h2 class="text-2xl font-semibold text-red-400">32</h2>
+    </div>
+
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+    <!-- SEARCH -->
+    <input
+      type="search"
+      placeholder="Search patient, doctor..."
+      class="bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-md w-full md:w-80 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+    />
+
+    <!-- FILTER (simplified: keep logic clean) -->
+    <select
+      class="bg-gray-900 border border-gray-700 px-4 py-2 rounded-md focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+    >
+      <option>All</option>
+      <option>Upcoming</option>
+      <option>Completed</option>
+      <option>Pending</option>
+      <option>Canceled</option>
+    </select>
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+
+    <table class="w-full text-left">
+
+      <thead class="bg-gray-800 text-gray-300 text-sm">
+        <tr>
+          <th class="p-4">Patient</th>
+          <th class="p-4">Doctor</th>
+          <th class="p-4">Date</th>
+          <th class="p-4">Time</th>
+          <th class="p-4">Type</th>
+          <th class="p-4">Status</th>
+          <th class="p-4">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr
+          *ngFor="let appointment of patientAppointments; let i = index"
+          class="border-t border-gray-800 hover:bg-gray-800 transition"
+        >
+
+          <td class="p-4 font-medium">
+            {{ appointment.patientName }}
+          </td>
+
+          <td class="p-4">
+            {{ appointment.doctorName }}
+          </td>
+
+          <td class="p-4">
+            {{ appointment.date }}
+          </td>
+
+          <td class="p-4">
+            {{ appointment.time }}
+          </td>
+
+          <td class="p-4 text-sm text-gray-400">
+            {{ appointment.type }}
+          </td>
+
+          <!-- STATUS -->
+          <td class="p-4">
+            <span
+              class="px-3 py-1 text-xs rounded-full"
+              [ngClass]="{
+                'bg-green-700': appointment.status === 'Completed',
+                'bg-yellow-700': appointment.status === 'Pending',
+                'bg-red-700': appointment.status === 'Canceled',
+                'bg-sky-600': appointment.status === 'Upcoming'
+              }"
             >
-            <span>{{isFormVisible? 'Close Form' : 'New Appointment'}}</span>
-        </button>
-    </div>
+              {{ appointment.status }}
+            </span>
+          </td>
 
+          <!-- ACTIONS -->
+          <td class="p-4 relative">
 
-    <!-- STATISTICS -->
-    <div class="grid grid-cols-4 gap-6">
-
-        <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-            <p class="text-gray-400 text-sm">Total</p>
-            <h2 class="text-2xl font-semibold">324</h2>
-        </div>
-
-        <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-            <p class="text-gray-400 text-sm">Upcoming</p>
-            <h2 class="text-2xl font-semibold text-blue-400">102</h2>
-        </div>
-
-        <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-            <p class="text-gray-400 text-sm">Completed</p>
-            <h2 class="text-2xl font-semibold text-green-400">190</h2>
-        </div>
-
-        <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-            <p class="text-gray-400 text-sm">Canceled</p>
-            <h2 class="text-2xl font-semibold text-red-400">32</h2>
-        </div>
-        
-    </div>
-
-
-    <!-- FILTERS -->
-    <div class="flex flex-wrap items-center justify-between gap-4">
-
-        <!-- status filters -->
-        <div class="flex space-x-2">
-
-            <button class="bg-blue-900 px-4 py-1 rounded-full text-sm">
-                All
+            <button
+              (click)="toggleMenu(i)"
+              class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-md transition"
+            >
+              ⋮
             </button>
 
-            <button class="border border-gray-700 px-4 py-1 rounded-full text-sm hover:bg-gray-800">
-                Upcoming
-            </button>
+            <div
+              *ngIf="activeMenuIndex === i"
+              class="absolute right-4 mt-2 w-40 bg-gray-900 border border-gray-700 rounded-lg shadow-lg z-50 overflow-hidden"
+            >
 
-            <button class="border border-gray-700 px-4 py-1 rounded-full text-sm hover:bg-gray-800">
-                Completed
-            </button>
+              <button class="w-full text-left px-4 py-2 hover:bg-gray-800">
+                View
+              </button>
 
-            <button class="border border-gray-700 px-4 py-1 rounded-full text-sm hover:bg-gray-800">
-                Pending
-            </button>
+              <button class="w-full text-left px-4 py-2 hover:bg-gray-800">
+                Edit
+              </button>
 
-            <button class="border border-gray-700 px-4 py-1 rounded-full text-sm hover:bg-gray-800">
-                Cancelled
-            </button>
+              <button class="w-full text-left px-4 py-2 hover:bg-gray-800">
+                Complete
+              </button>
 
-        </div>
+              <button class="w-full text-left px-4 py-2 text-red-400 hover:bg-gray-800">
+                Cancel
+              </button>
 
-        <!-- search -->
-        <input
-            type="search"
-            placeholder="Search patient, doctor..."
-            class="bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-md w-64 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
-        />
+            </div>
 
-    </div>
+          </td>
 
+        </tr>
 
-    <!-- TABLE -->
-    <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
+      </tbody>
+    </table>
 
-        <div *ngIf="patientAppointments.length > 0; else noAppointments">
-            <table class="w-full text-left">
+    <!-- EMPTY STATE -->
+    <ng-template #noAppointments>
+      <div class="text-center text-gray-500 p-6">
+        No appointments found.
+      </div>
+    </ng-template>
 
-                <thead class="bg-gray-800 text-gray-300 text-sm">
-                    <tr>
-                        <th class="p-4">Patient</th>
-                        <th class="p-4">Doctor</th>
-                        <th class="p-4">Date</th>
-                        <th class="p-4">Time</th>
-                        <th class="p-4">Type</th>
-                        <th class="p-4">Status</th>
-                        <th class="p-4">Actions</th>
-                    </tr>
-                </thead>
+  </div>
 
-                <tbody>
+  <!-- PAGINATION -->
+  <div class="flex justify-between items-center text-sm text-gray-400">
 
-                    <tr *ngFor="let appointment of patientAppointments; let i = index"
-                        class="border-t border-gray-800 hover:bg-gray-800 transition">
-                        <td class="p-4 font-medium">
-                            {{ appointment.patientName }}
-                        </td>
-                        <td class="p-4">
-                            {{ appointment.doctorName }}
-                        </td>
-                        <td class="p-4">
-                            {{ appointment.date }}
-                        </td>
-                        <td class="p-4">
-                            {{ appointment.time }}
-                        </td>
-                        <td class="p-4 text-sm text-gray-400">
-                            {{ appointment.type }}
-                        </td>
+    <p>Showing 1 - 10 of 324 appointments</p>
 
-                        <!-- STATUS -->
-                        <td class="p-4">
-                            <span
-                                class="px-3 py-1 text-xs rounded-full"
-                                [ngClass]="{
-                                    'bg-green-700 text-white': appointment.status === 'Completed',
-                                    'bg-yellow-700 text-white': appointment.status === 'Pending',
-                                    'bg-red-700 text-white': appointment.status === 'Canceled',
-                                    'bg-blue-700 text-white': appointment.status === 'Upcoming'
-                                }"
-                            >
-                                {{ appointment.status }}
-                            </span>
-                        </td>
+    <div class="space-x-2">
 
-                        <!-- ACTIONS -->
-                        <td class="p-4 relative">
-                            <!-- 3 dots button -->
-                            <button
-                                (click)="toggleMenu(i)"
-                                class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-md text-white">
-                                ⋮
-                            </button>
+      <button class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded transition">
+        Prev
+      </button>
 
-                            <!-- Dropdown menu -->
-                            <div
-                                *ngIf="activeMenuIndex === i"
-                                class="absolute right-4 mt-2 w-40 bg-gray-900 border border-gray-700 rounded-lg shadow-lg z-50 overflow-hidden">
+      <button class="px-3 py-1 bg-sky-600 rounded">
+        1
+      </button>
 
-                                <button class="w-full text-left px-4 py-2 hover:bg-gray-800">
-                                    View
-                                </button>
+      <button class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded transition">
+        2
+      </button>
 
-                                <button class="w-full text-left px-4 py-2 hover:bg-gray-800">
-                                    Edit
-                                </button>
-
-                                <button class="w-full text-left px-4 py-2 hover:bg-gray-800">
-                                    Complete
-                                </button>
-
-                                <button class="w-full text-left px-4 py-2 text-red-400 hover:bg-red-900">
-                                    Cancel
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <ng-template #noAppointments>
-            <h2 class="text-gray-500 text-center text-2xl p-4">No appointments found.</h2>
-        </ng-template>
+      <button class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded transition">
+        Next
+      </button>
 
     </div>
 
+  </div>
 
-    <!-- PAGINATION -->
-    <div class="flex justify-between items-center text-sm text-gray-400">
-        <p>Showing 1 - 10 of 324 appointments</p>
-        <div class="space-x-2">
-            <button class="px-3 py-1 bg-gray-800 rounded">
-                Prev
-            </button>
-            <button class="px-3 py-1 bg-blue-700 rounded">
-                1
-            </button>
-            <button class="px-3 py-1 bg-gray-800 rounded">
-                2
-            </button>
-            <button class="px-3 py-1 bg-gray-800 rounded">
-                Next
-            </button>
-        </div>
-    </div>
+  <!-- FORM -->
+  <app-appointments-form
+    *ngIf="isFormVisible"
+    (close)="toggleFormVisibility()"
+  ></app-appointments-form>
 
-    <!-- APPOINTMENTS FORM -->
-    <app-appointments-form 
-        *ngIf="isFormVisible"
-        (close)="toggleFormVisibility()">
-    </app-appointments-form>
 </section>
