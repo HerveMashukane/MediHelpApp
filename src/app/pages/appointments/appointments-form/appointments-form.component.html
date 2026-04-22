@@ -1,160 +1,148 @@
-<section class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 p-4 lg:p-8 animate-pageFlip">
+<section class="fixed inset-0 flex items-center justify-center bg-black/80 p-4 lg:p-8 animate-pageFlip">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:w-[80%]">
 
-    <div class="grid grid-cols-2 gap-6 lg:w-[80%]">
+        <!-- FORM -->
+        <form
+            class="bg-gray-900 p-8 rounded-xl border border-gray-800 space-y-5"
+            (ngSubmit)="bookAppointment()"
+        >
 
-        <!-- APPOINTMENT FORM -->
-        <form class="bg-gray-900 p-8 rounded-xl border border-gray-800 space-y-5">
-            <!-- text header -->
-            <div class="flex flex-col space-y-4">
+            <!-- HEADER -->
+            <div class="space-y-2">
                 <h2 class="text-2xl text-white font-semibold">
-                    Book an Appointment
+                    Book Appointment
                 </h2>
-                <h3 class="text-lg text-white font-semibold">
-                    Appointment Details
-                </h3>
+                <p class="text-gray-400 text-sm">
+                    Fill patient and scheduling details
+                </p>
             </div>
 
-            <!-- Patient Name -->
-            <div class="flex flex-col space-y-2">
+            <!-- PATIENT -->
+            <div class="flex flex-col space-x-3">
                 <label class="text-gray-300">Patient Name</label>
-
                 <input
                     type="text"
-                    placeholder="Type patient name..."
-                    [(ngModel)]="patientName"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
+                    [(ngModel)]="form.patientName"
+                    name="patientName"
+                    placeholder="Enter patient name"
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+                />
             </div>
 
-
-            <!-- Doctor -->
+            <!-- DOCTOR -->
             <div class="flex flex-col space-y-2">
-
-                <label class="text-gray-300">
-                    Select Doctor
-                </label>
-
+                <label class="text-gray-300">Select Doctor</label>
                 <select
+                    [(ngModel)]="form.doctor"
+                    name="doctor"
                     (change)="loadSlots()"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-
-                    <option disabled selected>
-                        Choose Doctor...
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+                >
+                    <option value="" disabled selected>Choose doctor...</option>
+                    <option *ngFor="let doctor of doctors" [value]="doctor.name">
+                        {{ doctor.name }}
                     </option>
                 </select>
-
             </div>
 
-
-            <!-- Date -->
+            <!-- DATE -->
             <div class="flex flex-col space-y-2">
-
-                <label class="text-gray-300">
-                    Appointment Date
-                </label>
-
+                <label class="text-gray-300">Date</label>
                 <input
                     type="date"
+                    [(ngModel)]="form.date"
+                    name="date"
                     (change)="loadSlots()"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+                />
             </div>
 
-
-            <!-- Selected Time -->
+            <!-- TIME -->
             <div class="flex flex-col space-y-2">
-
-                <label class="text-gray-300">
-                    Selected Time
-                </label>
-
+                <label class="text-gray-300">Selected Time</label>
                 <input
                     type="text"
-                    [value]="selectedSlot"
+                    [value]="form.time"
                     readonly
-                    placeholder="Select a slot"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2"
+                />
             </div>
 
-            <!-- appointment status -->
+            <!-- STATUS -->
             <div class="flex flex-col space-y-2">
-                <label for="status">Status</label>
-                <select name="status" class="bg-gray-900 text-white border border-gray-700 p-2 rounded-md focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-                    <option value="" disabled selected>Choose status</option>
+                <label class="text-gray-300">Status</label>
+                <select
+                    [(ngModel)]="form.status"
+                    name="status"
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+                >
+                    <option value="Pending">Pending</option>
                     <option value="Active">Active</option>
                     <option value="Completed">Completed</option>
-                    <option value="Pending">Pending</option>
                     <option value="Canceled">Canceled</option>
                 </select>
             </div>
 
-            <!-- Selected Time -->
+            <!-- TYPE -->
             <div class="flex flex-col space-y-2">
-                <label class="text-gray-300">
-                    Appointment Type
-                </label>
-
+                <label class="text-gray-300">Appointment Type</label>
                 <input
                     type="text"
-                    placeholder="Type the appointment type..."
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
-                    >
+                    [(ngModel)]="form.type"
+                    name="type"
+                    placeholder="Consultation, checkup..."
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+                />
             </div>
 
-            <!-- Notes -->
+            <!-- NOTES -->
             <div class="flex flex-col space-y-2">
-
-                <label class="text-gray-300">
-                    Notes(optional)
-                </label>
-
+                <label class="text-gray-300">Notes (optional)</label>
                 <textarea
                     rows="4"
+                    [(ngModel)]="form.notes"
+                    name="notes"
                     placeholder="Additional information"
-                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition">
-                </textarea>
-
+                    class="bg-gray-950 text-white border border-gray-700 rounded-lg px-4 py-2 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition"
+                ></textarea>
             </div>
 
-
+            <!-- SUBMIT -->
             <button
-                class="bg-blue-800 hover:bg-blue-700 transition px-6 py-2 rounded-lg font-semibold"
-                click="bookAppointment()">
+                type="submit"
+                (click)="bookAppointment()"
+                class="bg-sky-500 hover:bg-sky-600 transition px-6 py-2 rounded-lg font-semibold w-full"
+            >
                 Book Appointment
             </button>
-
         </form>
 
-
-
-        <!-- SLOT PANEL -->
+        <!-- ================= SLOT PANEL ================= -->
         <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 space-y-6">
 
-            <div class="flex justify-between items-center border-b border-blue-950 pb-4">
+            <div class="flex justify-between items-center border-b border-gray-800 pb-4">
                 <h3 class="text-lg text-white font-semibold">
-                    Available Time Slots
+                Available Time Slots
                 </h3>
-                <button (click)="onCancel()" type="button" class="text-white hover:text-red-500 transition">
-                        <i class="bi bi-x-circle text-2xl"></i>
+
+                <button (click)="onCancel()" type="button">
+                    <i class="bi bi-x-circle text-2xl text-gray-400 hover:text-red-500 transition"></i>
                 </button>
             </div>
 
-            <!-- Doctor summary -->
-            <div class="flex items-center justify-between bg-gray-950 p-4 rounded-lg">
+            <!-- SUMMARY -->
+            <div class="bg-gray-950 p-4 rounded-lg flex justify-between items-center">
 
                 <div>
                     <p class="text-white font-medium">
-                        {{ selectedDoctor || 'Select doctor' }}
+                        {{ form.doctor || 'Select doctor' }}
                     </p>
-
                     <p class="text-sm text-gray-400">
-                        {{ selectedDate || 'Choose a date' }}
+                        {{ form.date || 'Choose date' }}
                     </p>
                 </div>
-
-                <i class="fa-solid fa-user-doctor text-blue-500 text-xl"></i>
+                <i class="bi bi-person-badge text-sky-500 text-xl"></i>
             </div>
-
 
             <!-- SLOTS -->
             <div class="grid grid-cols-4 gap-3">
@@ -164,12 +152,12 @@
                     (click)="selectSlot(slot)"
                     [disabled]="slot.booked"
                     [ngClass]="{
-                        'bg-gray-800 hover:bg-blue-700': !slot.booked,
+                        'bg-gray-800 hover:bg-sky-600': !slot.booked,
                         'bg-red-700 cursor-not-allowed': slot.booked
                     }"
-                    class="text-white py-2 rounded-lg transition">
-
-                    {{ slot.time }}
+                    class="text-white py-2 rounded-lg transition"
+                >
+                {{ slot.time }}
                 </button>
             </div>
         </div>

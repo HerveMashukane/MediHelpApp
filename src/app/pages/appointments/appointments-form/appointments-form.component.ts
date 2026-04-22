@@ -13,51 +13,97 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppointmentsFormComponent {
 
-  patientName = '';
+  // ================= DOCTORS =================
+  doctors = [
+    { id: 1, name: 'Dr Herve', startTime: '07:00', endTime: '12:00', slotDuration: 30},
+    { id: 2, name: 'Dr Alice', startTime: '12:00', endTime: '17:00', slotDuration: 20 }
+  ];
+
+  // ================= FORM STATE =================
+  form = {
+    patientName: '',
+    doctor: '',
+    date: '',
+    time: '',
+    status: 'Pending',
+    type: '',
+    notes: ''
+  };
+
+  // ================= SLOTS =================
+  slots: any[] = [];
+  selectedDoctor: any = null;
+
   constructor(
     private slotsService: SlotsService,
-    private appointmentService: AppointmentService,
-  ){}
-  slots:any[]=[]
-  selectedDoctor:any
-  selectedDate: any
+    private appointmentService: AppointmentService
+  ) {}
 
-loadSlots()
-{
+  // ================= LOAD SLOTS =================
+  loadSlots() {
+    // find selected doctor object
+    this.selectedDoctor = this.doctors.find(
+      d => d.name === this.form.doctor
+    );
 
-if(!this.selectedDoctor) return
+    if (!this.selectedDoctor || !this.form.date) return;
 
-this.slots = this.slotsService.generateSlots(
+    this.slots = this.slotsService.generateSlots(
+      this.selectedDoctor.startTime,
+      this.selectedDoctor.endTime,
+      this.selectedDoctor.slotDuration
+    );
+  }
 
-this.selectedDoctor.startTime,
-this.selectedDoctor.endTime,
-this.selectedDoctor.slotDuration
-
-)
-
-}
+  // ================= SELECT SLOT =================
   selectedSlot = '';
 
-  selectSlot(slot:any)
-  {
-    if(!slot.booked)
-    {
+  selectSlot(slot: any) {
+    if (!slot.booked) {
       this.selectedSlot = slot.time;
+      this.form.time = slot.time;
     }
   }
 
-  // close form
+  // ================= CLOSE FORM =================
   @Output() close = new EventEmitter<void>();
   onCancel() {
     this.close.emit();
   }
 
-  // book appointment
+  // ================= BOOK APPOINTMENT =================
   bookAppointment() {
-    // const newAppointment = {
-    //   if(this.patientName){
-        
-    //   }
-    // }
+
+    const newAppointment = {
+      id: Date.now(),
+      patientName: this.form.patientName,
+      doctorName: this.form.doctor,
+      date: this.form.date,
+      time: this.form.time,
+      status: this.form.status,
+      type: this.form.type,
+      notes: this.form.notes
+    }
+    // add appointment
+    this.appointmentService.addAppointment(newAppointment);
+    // reset form after submit
+    this.resetForm();
+  }
+
+  // ================= RESET FORM =================
+  resetForm() {
+    this.form = {
+      patientName: '',
+      doctor: '',
+      date: '',
+      time: '',
+      status: 'Pending',
+      type: '',
+      notes: ''
+    };
+
+    this.selectedSlot = '';
+    this.slots = [];
+    this.selectedDoctor = null;
   }
 }
