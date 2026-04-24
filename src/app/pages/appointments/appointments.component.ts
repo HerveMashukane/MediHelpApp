@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AppointmentsFormComponent } from './appointments-form/appointments-form.component';
 import { AppointmentService, Appointment } from '../../services/appointments/appointment.service';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-appointments',
   standalone: true,
@@ -13,12 +14,14 @@ import { Observable } from 'rxjs';
 export class AppointmentsComponent {
 
   appointments$: Observable<Appointment[]>;
+  // appointment stats for KPI cards
   isFormVisible: boolean = false;
 
   constructor(private appointmentService: AppointmentService) {
     this.appointments$ = this.appointmentService.appointments$;
-  }
 
+    // Reactive KPI stats
+  }
   toggleFormVisibility() {
     this.isFormVisible = !this.isFormVisible;
   }

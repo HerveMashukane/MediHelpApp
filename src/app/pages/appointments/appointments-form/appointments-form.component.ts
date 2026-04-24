@@ -73,21 +73,31 @@ export class AppointmentsFormComponent {
 
   // ================= BOOK APPOINTMENT =================
   bookAppointment() {
-
-    const newAppointment = {
-      id: Date.now(),
-      patientName: this.form.patientName,
-      doctorName: this.form.doctor,
-      date: this.form.date,
-      time: this.form.time,
-      status: this.form.status,
-      type: this.form.type,
-      notes: this.form.notes
+    if(
+      this.form.patientName &&
+      this.form.doctor &&
+      this.form.date &&
+      this.form.status &&
+      this.form.time &&
+      this.form.type
+    ){
+      const newAppointment = {
+        id: Date.now(),
+        patientName: this.form.patientName,
+        doctorName: this.form.doctor,
+        date: this.form.date,
+        time: this.form.time,
+        status: this.form.status,
+        type: this.form.type,
+        notes: this.form.notes
+      }
+      // add appointment
+      this.appointmentService.addAppointment(newAppointment);
+      // reset form after submit
+      this.resetForm();
+      // close form
+      this.onCancel();
     }
-    // add appointment
-    this.appointmentService.addAppointment(newAppointment);
-    // reset form after submit
-    this.resetForm();
   }
 
   // ================= RESET FORM =================
