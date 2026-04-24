@@ -107,7 +107,7 @@ export class AppointmentsFormComponent {
       doctor: '',
       date: '',
       time: '',
-      status: 'Pending',
+      status: 'Active',
       type: '',
       notes: ''
     };

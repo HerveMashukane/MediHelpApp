@@ -4,6 +4,7 @@ import { AppointmentsFormComponent } from './appointments-form/appointments-form
 import { AppointmentService, Appointment } from '../../services/appointments/appointment.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs';
+
 @Component({
   selector: 'app-appointments',
   standalone: true,
@@ -21,30 +22,13 @@ export class AppointmentsComponent {
     Completed: number;
     Pending: number;
     Canceled: number;
-
+    Total: number;
   }>;
   isFormVisible: boolean = false;
 
   constructor(private appointmentService: AppointmentService) {
     this.appointments$ = this.appointmentService.appointments$;
-    // Reactive KPI stats
-    this.appointmentStats$ = this.appointments$.pipe(
-      map((appointments) => {
-        const stats = {
-          Active: 0,
-          Upcoming: 0,
-          Completed: 0,
-          Pending: 0,
-          Canceled: 0
-        };
-        for(let app of appointments) {
-          if(stats[app.status as keyof typeof stats] !== undefined) {
-            stats[app.status as keyof typeof stats]++;
-          }
-        }
-        return stats;
-      })
-    )
+    this.appointmentStats$ = this.appointmentService.appointmentStats$;
   }
   toggleFormVisibility() {
     this.isFormVisible = !this.isFormVisible;

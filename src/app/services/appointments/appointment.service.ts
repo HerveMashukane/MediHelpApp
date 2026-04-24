@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs';
 
 export interface Appointment {
   id: number;
@@ -17,8 +18,9 @@ export interface Appointment {
 })
 export class AppointmentService {
 
-  constructor() { }
-
+  constructor() {
+  }
+  
   public appointmentsSource = new BehaviorSubject<Appointment[]>([
     {
       id: 1,
@@ -71,7 +73,28 @@ export class AppointmentService {
       message: 'First visit for general checkup'
     },
   ]);
+  // get observable list of appointments
   appointments$ = this.appointmentsSource.asObservable();
+  // reactive stats of appointments
+  appointmentStats$ = this.appointments$.pipe(
+    map((appointments) => {
+      const stats = {
+        Active: 0,
+        Upcoming: 0,
+        Completed: 0,
+        Pending: 0,
+        Canceled: 0,
+        Total: 0,
+      }
+      for(let app of appointments){
+        if(stats[app.status as keyof typeof stats] !== undefined){
+          stats[app.status as keyof typeof stats]++;
+          stats.Total++;
+        }
+      }
+      return stats;
+    })
+  )
 
   addAppointment(appointment: Appointment) {
     const currentAppointments = this.appointmentsSource.value;

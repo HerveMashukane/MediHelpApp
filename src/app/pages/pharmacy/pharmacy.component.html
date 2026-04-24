@@ -3,7 +3,10 @@
   <!-- HEADER -->
   <div class="flex justify-between items-center">
     <div>
-      <h2 class="text-3xl text-white font-semibold">Medication Tracker</h2>
+      <h2 class="text-3xl text-white font-semibold">
+        Medication Tracker • 
+          <span>{{ filteredMedications.length }}</span>
+      </h2>
       <p class="text-gray-400 text-sm">
         Track prescriptions, schedules and adherence
       </p>
@@ -69,7 +72,7 @@
         <tbody>
 
           <tr
-            *ngFor="let med of filteredMedications; let i = index"
+            *ngFor="let med of medications$ | async; let i = index"
             class="border-t border-gray-800 hover:bg-gray-800 transition"
           >
 

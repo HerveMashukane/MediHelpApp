@@ -158,7 +158,7 @@ export class RadiologyComponent {
 
   // filtered results based on search term and status filter
 
-  get filteredRadiology(): RadiologyExam[] {
+  get filteredExams(): RadiologyExam[] {
 
     return this.radiologyExams.filter(exam => {
 

@@ -1,5 +1,7 @@
 <section class="bg-gray-900 p-10 flex flex-col animate-pageFlip rounded-lg">
-    <h2 class="text-2xl text-white font-semibold">Patient Records</h2>
+    <h2 class="text-2xl text-white font-semibold">Patient Records • 
+        <span>{{ filteredPatients.length }}</span>
+    </h2>
 
     <!-- patient filters -->
     <div class="flex justify-between py-4">
@@ -35,7 +37,7 @@
             *ngIf="filteredPatients.length > 0; else noPatients"
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8">
             <div 
-                *ngFor="let p of filteredPatients" 
+                *ngFor="let p of patients$ | async" 
                 class="flex flex-col items-center bg-gray-900 p-4 shadow-lg rounded-md transition cursor-pointer hover:scale-105">
                 <div class="space-y-2">
                     <p class="text-sm text-gray-300 italic">{{ p.preferedName }}</p>
